@@ -1,0 +1,22 @@
+.body {
+  display: flex;
+  align-items: center;
+}
+
+.track {
+  width: 50px;
+  height: 5px;
+  overflow: visible;
+}
+
+.thumb {
+  width: 20px;
+  height: 20px;
+  left: rem(-2px);
+  transition: background-color 100ms ease, left 100ms ease;
+
+}
+.thumb input:checked + * {
+  background-color: var(--mantine-color-blue-filled);
+  left: calc(100% - 12px);
+}
