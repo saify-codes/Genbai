@@ -1,5 +1,6 @@
 import { createTheme, MantineProvider } from '@mantine/core';
 import "./globals.css";
+import "./app.css";
 
 const theme = createTheme({
   /** Put your mantine theme override here */

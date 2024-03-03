@@ -1,7 +1,18 @@
+import BreadCrumb from "@/components/BreadCrumb/BreadCrumb";
 import AppLayout from "@/layout/app"
 
+const items = [
+  { title: 'Project Name', href: '/project-name' },
+  { title: 'Team Name (Workflow Type)', href: 'team-name' },
+  { title: 'Backlog', href: 'backlog' },
+]
+
+
 export default function () {
-  return <AppLayout>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit corrupti cupiditate error? Est velit ex, repudiandae eum optio amet repellat, eaque veritatis assumenda quaerat odit iste maxime facere, vel unde?
-  </AppLayout>
+  return (
+    <AppLayout>
+      <BreadCrumb data={items}/>
+      <h1 className="mt-2 text-2xl font-bold">Dashboard</h1>
+    </AppLayout>
+  );
 }

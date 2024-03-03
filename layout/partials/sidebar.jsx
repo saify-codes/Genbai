@@ -11,10 +11,12 @@ import { IoTicket, IoRocketSharp } from "react-icons/io5";
 import { RiHome4Fill } from "react-icons/ri";
 import { BsThreeDots } from "react-icons/bs";
 import { GoPlus } from "react-icons/go";
+import { useTheme } from "@/context/ThemeContext";
 
 export default function sidebar() {
+  const { theme } = useTheme();
   return <>
-    <aside className="border-r p-2 bg-white">
+    <aside id={theme} className="border-r p-2 bg-white">
 
       <div className="category mb-5">
         <label className="text-sm">WORKSPACE</label>

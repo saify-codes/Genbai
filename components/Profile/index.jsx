@@ -6,7 +6,7 @@ export default function Example() {
         <Menu as="div" className="relative inline-block text-left">
             <div className="flex justify-center items-center">
                 <Menu.Button >
-                    <img className=' w-8 h-8 rounded-full object-cover' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReHlx51nzRyT2IGzXt9Ow0uUOOTCEAXlPejZhQLm1aAw&s" alt="profile picture" />
+                    <img height={32} width={32} className='w-8 h-8 rounded-full object-cover' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReHlx51nzRyT2IGzXt9Ow0uUOOTCEAXlPejZhQLm1aAw&s" alt="profile picture" />
                 </Menu.Button>
             </div>
             <Transition
@@ -18,7 +18,7 @@ export default function Example() {
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95"
             >
-                <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
+                <Menu.Items className="absolute z-50 right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
                     <div className="px-1 py-1 ">
                         <Menu.Item>
                             {({ active }) => (

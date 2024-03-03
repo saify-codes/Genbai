@@ -1,0 +1,18 @@
+
+#light {
+    background-color: #fff;
+    color: #06152D;
+}
+
+#dark {
+    background-color: #06152D;
+    color: #AECDFF;
+}
+
+.my-bread-crumb {
+    color: #6B8CC2;
+}
+
+.bread-crumb-current {
+    font-weight: 600;
+}
