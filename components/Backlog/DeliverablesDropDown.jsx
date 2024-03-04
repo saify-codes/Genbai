@@ -1,26 +1,20 @@
+"use client";
 import { Menu, Transition } from '@headlessui/react';
-import {
-  IconSettings,
-  IconSearch,
-  IconPhoto,
-  IconMessageCircle,
-  IconTrash,
-  IconArrowsLeftRight,
-} from '@tabler/icons-react';
 import MyButton from './MyButton';
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { useTheme } from '@/context/ThemeContext';
-import { BacklogDoneGreen, BacklogInProgressOrange, BacklogPlannedYellow } from '@/utils/svg_icons';
-import Searchbar from '../Searchbar';
+import MySwitch from '../Interactions/MySwitch';
 
-function EpicDropDown({ data }) {
+function DeliverablesDropDown({ data }) {
+    const [showDesign, setShowDesign] = useState(false);
+    const [showSpikes, setShowSpikes] = useState(false);
     const { theme } = useTheme();
 
   return (
     <Menu as="div" className="relative inline-block text-left">
         <div className="flex justify-center items-center">
             <Menu.Button> 
-                <MyButton text="Epics" />
+                <MyButton text="Deliverables" />
             </Menu.Button>
         </div>
         <Transition
@@ -32,13 +26,18 @@ function EpicDropDown({ data }) {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
         >
-            <Menu.Items className={`absolute z-50 right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md border-[1px] shadow-lg ring-1 ring-black/5 focus:outline-none overflow-auto max-h-[380px] ${theme === 'light' ? "border-[#B4C6E4] text-[#143261]": "border-[#143261] text-[#99C0FF]"}`}>
+            <Menu.Items className={`absolute z-50 right-0 mt-2 w-[248px] origin-top-right divide-y divide-gray-100 rounded-md border-[1px] shadow-lg ring-1 ring-black/5 focus:outline-none overflow-auto max-h-[380px] ${theme === 'light' ? "border-[#B4C6E4] text-[#143261]": "border-[#143261] text-[#99C0FF]"}`}>
                 <div className="p-2">
                     <p className='text-[#6B8CC2] font-semibold mb-2 uppercase'>Filter By Epic</p>
-                    <div className="mb-2">
-                        <Searchbar />
+                    <p className={`text-[#057BF1] rounded-md font-semibold p-1 my-1 ${theme === 'light' ? "bg-[#F0F7FF]": "bg-[#AECDFF]"}`}>All Types</p>
+                    <div className="flex justify-between items-center gap-2 mt-2">
+                        <p className='text-sm font-semibold text-[#26467A]'>Show Design Deliverables</p>
+                        <MySwitch enabled={showDesign} setEnabled={setShowDesign} />
                     </div>
-                    <p className={`text-[#057BF1] rounded-md font-semibold p-1 my-1 ${theme === 'light' ? "bg-[#F0F7FF]": "bg-[#AECDFF]"}`}>All Epics</p>
+                    <div className="flex justify-between items-center gap-2 mt-2">
+                        <p className='text-sm font-semibold text-[#26467A]'>Show Spike Deliverables</p>
+                        <MySwitch enabled={showSpikes} setEnabled={setShowSpikes} />
+                    </div>
                     <div className="p-1">
                         {data?.map((epic, index) => {
                             if(epic.isLabel){
@@ -65,4 +64,4 @@ function EpicDropDown({ data }) {
   );
 }
 
-export default EpicDropDown;
+export default DeliverablesDropDown;

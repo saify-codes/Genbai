@@ -13,14 +13,14 @@ import { useTheme } from '@/context/ThemeContext';
 import { BacklogDoneGreen, BacklogInProgressOrange, BacklogPlannedYellow } from '@/utils/svg_icons';
 import Searchbar from '../Searchbar';
 
-function EpicDropDown({ data }) {
+function LabelsDropDown({ data }) {
     const { theme } = useTheme();
 
   return (
     <Menu as="div" className="relative inline-block text-left">
         <div className="flex justify-center items-center">
             <Menu.Button> 
-                <MyButton text="Epics" />
+                <MyButton text="Labels" />
             </Menu.Button>
         </div>
         <Transition
@@ -34,11 +34,8 @@ function EpicDropDown({ data }) {
         >
             <Menu.Items className={`absolute z-50 right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md border-[1px] shadow-lg ring-1 ring-black/5 focus:outline-none overflow-auto max-h-[380px] ${theme === 'light' ? "border-[#B4C6E4] text-[#143261]": "border-[#143261] text-[#99C0FF]"}`}>
                 <div className="p-2">
-                    <p className='text-[#6B8CC2] font-semibold mb-2 uppercase'>Filter By Epic</p>
-                    <div className="mb-2">
-                        <Searchbar />
-                    </div>
-                    <p className={`text-[#057BF1] rounded-md font-semibold p-1 my-1 ${theme === 'light' ? "bg-[#F0F7FF]": "bg-[#AECDFF]"}`}>All Epics</p>
+                    <p className='text-[#6B8CC2] font-semibold mb-2 uppercase'>Filter By Label</p>
+                    <p className={`text-[#057BF1] rounded-md font-semibold p-1 my-1 ${theme === 'light' ? "bg-[#F0F7FF]": "bg-[#AECDFF]"}`}>All Labels</p>
                     <div className="p-1">
                         {data?.map((epic, index) => {
                             if(epic.isLabel){
@@ -65,4 +62,4 @@ function EpicDropDown({ data }) {
   );
 }
 
-export default EpicDropDown;
+export default LabelsDropDown;
