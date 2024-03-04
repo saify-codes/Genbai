@@ -1,9 +1,13 @@
 "use client";
+import Backlog from "@/components/Backlog/BacklogTab";
 import BreadCrumb from "@/components/BreadCrumb/BreadCrumb";
+import Dropdown from "@/components/Dropdown";
 import Searchbar from "@/components/Searchbar";
 import MyTabs from "@/components/Tabs/Tabs";
+import { useTheme } from "@/context/ThemeContext";
 import AppLayout from "@/layout/app"
-import { useState } from "react";
+import { useState, Fragment } from "react";
+
 
 const items = [
   { title: 'Project Name', href: '/project-name' },
@@ -16,13 +20,6 @@ const tabs = [
     { id: 2, name: 'Backlog Refining', value: "second" },
 ];
 
-const Backlog = () => (
-    <>
-        <div className="w-[250px]">
-            <Searchbar />
-        </div>
-    </>
-)
 
 const selectedTabData = {
     1: <Backlog />,

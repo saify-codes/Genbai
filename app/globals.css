@@ -52,3 +52,33 @@
     height: calc(100vh - 50px);
   }
 }
+
+
+/* Scroll Bar Start */
+
+/* The scrollbar itself */
+::-webkit-scrollbar {
+  width: 4px; /* Width of the scrollbar */
+}
+
+/* The track (progress background) of the scrollbar */
+::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Light grey track background */
+}
+
+/* Handle (the moving part) */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Dark grey handle color */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Lighter grey handle hover color */
+}
+
+element {
+  scrollbar-width: thin; /* "auto" or "thin" */
+  scrollbar-color: #888 #f0f0f0; /* thumb and track color */
+}
+
+/* Scroll Bar End */

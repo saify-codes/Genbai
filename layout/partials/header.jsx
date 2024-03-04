@@ -15,6 +15,7 @@ import { useTheme } from "@/context/ThemeContext";
 
 export default function () {
   const { theme } = useTheme();
+  const style = { color: theme === "light" ? "#fff": "#000" };
 
   const toggleSidebar = ()=>{
     const sidebar = document.querySelector('#app aside')
@@ -27,8 +28,8 @@ export default function () {
           <Image src='/logo.png' width="100" height="100" alt="" />
         </div>
 
-        <Dropdown title="create story" icon={<GoPlus />} />
-        <Dropdown title="generate story in sprint" icon={<IoLogoReact />} />
+        <Dropdown title="create story" icon={<GoPlus />} isBorder={true} style={style} />
+        <Dropdown title="generate story in sprint" icon={<IoLogoReact />} isBorder={true} style={style} />
         <Searchbar />
         <button className="mr-auto md:hidden" onClick={toggleSidebar}>
           <CiMenuFries/>
