@@ -16,3 +16,11 @@
 .bread-crumb-current {
     font-weight: 600;
 }
+
+.login-signup {
+    background: url("../public/images/login-signup-bg.png");
+}
+
+.mantine-PasswordInput-input {
+    background: #06152D;
+}

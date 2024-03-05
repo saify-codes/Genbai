@@ -110,6 +110,22 @@ export const PhaseApproved = () => (
     </svg>
 );
 
+export const GreenTick = () => (
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M10 20C15.5229 20 20 15.5228 20 10C20 4.47717 15.5229 0 10 0C4.47717 0 0 4.47717 0 10C0 15.5228 4.47717 20 10 20ZM14.3392 8.08929C14.6647 7.76385 14.6647 7.23621 14.3392 6.91077C14.0138 6.58533 13.4862 6.58533 13.1607 6.91077L8.75 11.3215L6.83923 9.41077C6.51379 9.08533 5.98618 9.08533 5.66074 9.41077C5.3353 9.73621 5.3353 10.2639 5.66074 10.5893L8.16074 13.0893C8.48618 13.4147 9.01379 13.4147 9.33923 13.0893L14.3392 8.08929Z" fill="#0EB498"/>
+    </svg>
+);
+
+// export const BacklogPlannedYellow = () => ();
+
+// export const BacklogPlannedYellow = () => ();
+
+// export const BacklogPlannedYellow = () => ();
+
+// export const BacklogPlannedYellow = () => ();
+
+// export const BacklogPlannedYellow = () => ();
+
 // export const BacklogPlannedYellow = () => ();
 
 // export const BacklogPlannedYellow = () => ();

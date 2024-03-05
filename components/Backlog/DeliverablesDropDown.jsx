@@ -11,7 +11,7 @@ function DeliverablesDropDown({ data }) {
     const { theme } = useTheme();
 
   return (
-    <Menu as="div" className="relative inline-block text-left">
+    <Menu as="div" className={`relative inline-block text-left`}>
         <div className="flex justify-center items-center">
             <Menu.Button> 
                 <MyButton text="Deliverables" />
@@ -26,7 +26,7 @@ function DeliverablesDropDown({ data }) {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
         >
-            <Menu.Items className={`absolute z-50 right-0 mt-2 w-[248px] origin-top-right divide-y divide-gray-100 rounded-md border-[1px] shadow-lg ring-1 ring-black/5 focus:outline-none overflow-auto max-h-[380px] ${theme === 'light' ? "border-[#B4C6E4] text-[#143261]": "border-[#143261] text-[#99C0FF]"}`}>
+            <Menu.Items className={`absolute z-50 right-0 mt-2 w-[248px] origin-top-right divide-y divide-gray-100 rounded-md border-[1px] shadow-lg ring-1 ring-black/5 focus:outline-none overflow-auto max-h-[380px] ${theme === 'light' ? "border-[#B4C6E4] text-[#143261] bg-white": "border-[#143261] bg-[#061123] text-[#99C0FF]"}`}>
                 <div className="p-2">
                     <p className='text-[#6B8CC2] font-semibold mb-2 uppercase'>Filter By Epic</p>
                     <p className={`text-[#057BF1] rounded-md font-semibold p-1 my-1 ${theme === 'light' ? "bg-[#F0F7FF]": "bg-[#AECDFF]"}`}>All Types</p>
