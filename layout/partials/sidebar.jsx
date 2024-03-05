@@ -16,7 +16,7 @@ import { useTheme } from "@/context/ThemeContext";
 export default function sidebar() {
   const { theme } = useTheme();
   return <>
-    <aside id={theme} className="border-r p-2 bg-white">
+    <aside id={theme} className="border-r p-2 bg-white z-50">
 
       <div className="category mb-5">
         <label className="text-sm">WORKSPACE</label>

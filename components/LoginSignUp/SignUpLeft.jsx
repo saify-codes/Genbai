@@ -12,7 +12,7 @@ const freePlan = [
 const SignUpLeft = () => {
   return (
     <>
-        <h1 className='font-bold text-6xl'>Make work easier <br />with Genbai</h1>
+        <h1 className='font-bold text-6xl text-center md:text-start'>Make work easier <br />with Genbai</h1>
         <p className="font-semibold text-3xl mt-8">Our free plan gets you:</p>
         {freePlan?.map(plan => (
             <div key={plan.id} className='flex items-center gap-2 mt-3'>

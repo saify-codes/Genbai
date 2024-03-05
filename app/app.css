@@ -21,6 +21,10 @@
     background: url("../public/images/login-signup-bg.png");
 }
 
-.mantine-PasswordInput-input {
-    background: #06152D;
+.no-break {
+    white-space: nowrap;
 }
+
+/* .mantine-PasswordInput-input {
+    background: #06152D;
+} */
