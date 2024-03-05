@@ -7,6 +7,7 @@ import { MdEmail } from "react-icons/md";
 import { useTheme } from '@/context/ThemeContext';
 import { GoogleIcon } from '@/utils/svg_icons';
 import Link from 'next/link';
+import Logo from '@/public/logo.png';
 
 const SignUpRight = () => {
     // const { theme } = useTheme();
@@ -17,7 +18,7 @@ const SignUpRight = () => {
   return (
     <div className='bg-[#06152D] border-[1px] border-[#143261] rounded-md py-6 px-3'>
         <div className="logo flex w-full justify-center">
-          <Image src='/logo.png' width="130" height="130" alt="" />
+          <Image src={Logo} width="130" height="130" alt="" />
         </div>
         <div>
             <TextInput

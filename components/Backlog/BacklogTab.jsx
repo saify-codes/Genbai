@@ -1,10 +1,5 @@
 
-import { Menu, Transition } from '@headlessui/react'
-import { BacklogPlannedYellow } from "@/utils/svg_icons";
-import { Button } from "@mantine/core";
 import { useTheme } from "@/context/ThemeContext";
-import Searchbar from "../Searchbar";
-import { Fragment } from "react";
 import EpicDropDown from "./EpicDropDown";
 import { DeliverablesData, EpicData, LabelsData, StoryTypes } from './CONSTTANT';
 import SroryTypeDropDown from './SroryTypeDropDown';
@@ -12,12 +7,14 @@ import DeliverablesDropDown from './DeliverablesDropDown';
 import LabelsDropDown from './LabelsDropDown';
 import TableInBackLog from './Table';
 import { GoSearch } from "react-icons/go";
+import { useState } from "react";
+import ManageTheBackLog from "./ManageTheBackLog";
 
 
 
 const Backlog = () => {
     const { theme } = useTheme();
-    const style = theme === "light" ? { color: "#305288" } : { color: "#305288", };
+    const [showTable, setShowTable] = useState(false);
   
     return (
         <>
@@ -35,8 +32,14 @@ const Backlog = () => {
                     <LabelsDropDown data={LabelsData} />
                 </div>
             </div>
-            <TableInBackLog />
-            <TableInBackLog />
+            {showTable ? (
+                <>
+                    <TableInBackLog />
+                    <TableInBackLog />
+                </>
+            ): (
+                <ManageTheBackLog />
+            )}
         </>
     );
 }

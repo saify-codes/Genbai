@@ -32,7 +32,7 @@ export default function () {
   return (
     <AppLayout>
       <BreadCrumb data={items}/>
-      <h1 className="mt-2 text-2xl font-bold">Backlog</h1>
+      <h1 className="mt-2 text-2xl font-bold">{selectedTab?.name}</h1>
       <MyTabs selected={selectedTab} tabs={tabs} data={selectedTabData[selectedTab.id]} onChange={(value) => setSelectedTab(value)} />
     </AppLayout>
   );

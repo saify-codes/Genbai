@@ -29,12 +29,12 @@ const TableHeader = ({ opened, toggle }) => {
         </div>
       </div>
       <div className='flex items-center'>
-          <span className='flex items-center gap-2 font-semibold'>
+          <span className={`flex items-center gap-2 font-semibold cursor-pointer ${theme === 'light' ? "hover:text-[#324d75]": "hover:text-[#5f99f5]" }`}>
             <FaPlus  />
             Create Story
           </span>
           <span className='mx-3'>OR</span>
-          <span className='flex items-center gap-2 font-semibold'>
+          <span className={`flex items-center gap-2 font-semibold cursor-pointer ${theme === 'light' ? "hover:text-[#324d75]": "hover:text-[#5f99f5]" }`}>
             <GenerateStory color={theme === 'light' ? "#000": "#99C0FF"} />
             Generate Story
           </span>
