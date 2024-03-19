@@ -1,7 +1,53 @@
 @import "@mantine/core/styles.css";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Figtree";
+}
+
+.link {
+  transition: 0.1s;
+}
+
+.link:hover p {
+  font-weight: 500;
+  color: #06152D;
+}
+
+.bell {
+  position: relative;
+}
+
+.bell:before {
+  content: '';
+  z-index: 1;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+  top: 7px;
+  right: 5px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #06152D;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #acc2ff;
+  border-radius: 20px;
+  width: 5px;
+}
 
 #app {
   display: grid;
@@ -15,28 +61,31 @@
   grid-column: 1 / -1;
 }
 
-#app aside{
-    transition: 0.5s ease-out;
-    overflow-y: auto;
+#app aside {
+  transition: 0.5s ease-out;
+  overflow-y: auto;
 }
 
-#app aside.active{
-    left: 0%;
+#app aside.active {
+  left: 0%;
 }
 
-#app aside::-webkit-scrollbar{
-    width: 3px;
-    display: none;
+#app aside::-webkit-scrollbar {
+  width: 3px;
+  display: none;
 }
-#app aside:hover::-webkit-scrollbar{
-    display: block;
+
+#app aside:hover::-webkit-scrollbar {
+  display: block;
 }
-#app aside::-webkit-scrollbar-track{
-    background-color: transparent;
+
+#app aside::-webkit-scrollbar-track {
+  background-color: transparent;
 }
-#app aside::-webkit-scrollbar-thumb{
-    background-color: #aaa;
-    border-radius: 10px;
+
+#app aside::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 10px;
 }
 
 @media (max-width: 768px) {
@@ -44,7 +93,7 @@
     grid-template-columns: 1fr;
   }
 
-  #app aside{
+  #app aside {
     position: fixed;
     left: -100%;
     top: 50px;
@@ -58,27 +107,37 @@
 
 /* The scrollbar itself */
 ::-webkit-scrollbar {
-  width: 4px; /* Width of the scrollbar */
+  width: 4px;
+  /* Width of the scrollbar */
 }
 
 /* The track (progress background) of the scrollbar */
 ::-webkit-scrollbar-track {
-  background: #f0f0f0; /* Light grey track background */
+  background: #f0f0f0;
+  /* Light grey track background */
 }
 
 /* Handle (the moving part) */
 ::-webkit-scrollbar-thumb {
-  background: #888; /* Dark grey handle color */
+  background: #888;
+  /* Dark grey handle color */
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Lighter grey handle hover color */
+  background: #555;
+  /* Lighter grey handle hover color */
 }
 
 element {
-  scrollbar-width: thin; /* "auto" or "thin" */
-  scrollbar-color: #888 #f0f0f0; /* thumb and track color */
+  scrollbar-width: thin;
+  /* "auto" or "thin" */
+  scrollbar-color: #888 #f0f0f0;
+  /* thumb and track color */
 }
 
 /* Scroll Bar End */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
