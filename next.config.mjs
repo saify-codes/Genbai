@@ -6,6 +6,7 @@ const nextConfig = {
     images: { unoptimized: true },
     basePath: '',
     output: 'export',
+    reactStrictMode: false,
 };
 
 export default nextConfig;

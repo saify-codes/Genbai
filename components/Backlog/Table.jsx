@@ -19,8 +19,8 @@ const tableData =  {
 };
 
 
-const TableInBackLog = () => {
-    const [opened, { toggle }] = useDisclosure(false);
+const TableInBackLog = ({ isOpen=false }) => {
+    const [opened, { toggle }] = useDisclosure(isOpen);
     const [selectedRows, setSelectedRows] = useState([]);
     const { theme } = useTheme();
 

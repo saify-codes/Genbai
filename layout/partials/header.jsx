@@ -23,7 +23,7 @@ export default function () {
   }
   return <>
     <header id={theme} className="bg-white p-2 border-b">
-      <nav className="m-auto max-w-7xl flex items-center gap-2">
+      <nav className="m-auto px-3 flex items-center gap-2">
         <div className="logo">
           <Image src='/logo.png' width="100" height="100" alt="" />
         </div>
