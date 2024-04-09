@@ -14,7 +14,7 @@ import ManageTheBackLog from "./ManageTheBackLog";
 
 const Backlog = () => {
     const { theme } = useTheme();
-    const [showTable, setShowTable] = useState(true);
+    const [showTable, setShowTable] = useState(false);
   
     return (
         <>

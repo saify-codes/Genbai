@@ -13,7 +13,7 @@ import { useTheme } from '@/context/ThemeContext';
 import { BacklogDoneGreen, BacklogInProgressOrange, BacklogPlannedYellow } from '@/utils/svg_icons';
 import Searchbar from '../Searchbar';
 
-function SroryTypeDropDown({ data }) {
+function StoryTypeDropDown({ data }) {
     const { theme } = useTheme();
 
   return (
@@ -62,4 +62,4 @@ function SroryTypeDropDown({ data }) {
   );
 }
 
-export default SroryTypeDropDown;
+export default StoryTypeDropDown;

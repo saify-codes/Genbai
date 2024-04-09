@@ -5,6 +5,7 @@
 //   ssr: false,
 // });
 import Backlog from "@/components/Backlog/BacklogFirstTab";
+import SearchAndDropDownInBackLog from "@/components/Backlog/SearchAndDropDownInBackLog";
 import BreadCrumb from "@/components/BreadCrumb/BreadCrumb";
 import DragAndDrop from "@/components/DragAndDrop";
 
@@ -43,6 +44,7 @@ export default function () {
       <BreadCrumb data={breadCrumbData}/>
       <h1 className="mt-2 text-2xl font-bold">{selectedTab?.name}</h1>
       <MyTabs selected={selectedTab} tabs={tabs} onChange={(value) => setSelectedTab(value)}>
+        <SearchAndDropDownInBackLog />
         {selectedTab.id === 1 ? <Backlog /> : <DragAndDrop />}
       </MyTabs>
     </AppLayout>
