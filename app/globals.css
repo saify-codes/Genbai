@@ -1,8 +1,62 @@
 @import "@mantine/core/styles.css";
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Figtree";
+}
+
+.link {
+  transition: 0.1s;
+}
+
+.link:hover p {
+  font-weight: 500;
+  color: #06152D;
+}
+
+.bell {
+  position: relative;
+}
+
+.bell:before {
+  content: '';
+  z-index: 1;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+  top: 7px;
+  right: 5px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #06152D;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #acc2ff;
+  border-radius: 20px;
+  width: 5px;
+}
+
+@media (max-width:1024px) {
+  .header {
+    height: 195vh;
+  }
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 #app {
   display: grid;
   grid-template-columns: 250px 1fr;
