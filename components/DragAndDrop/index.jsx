@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import Stories from "../Backlog/Stories";
+// import Stories from "../Backlog/Stories";
 import Block from "../Backlog/Block";
 import { BiLoaderCircle } from "react-icons/bi";
 import { FaRegSquare } from "react-icons/fa6";
@@ -50,8 +50,8 @@ const reorder = (boards, source, destination) => {
       board.id === sourceBoard.id
         ? { ...board, items: sourceItems }
         : board.id === destBoard.id
-        ? { ...board, items: destItems }
-        : board
+          ? { ...board, items: destItems }
+          : board
     );
     return newBoards;
   }
@@ -89,65 +89,65 @@ function QuoteApp() {
 
   const user = [
     {
-        logo: 'Frontend Redesign',
-        title: "Diagram user onboarding",
-        date: "Mar 23",
-        aim: 2,
-        plug: 3,
-        sprint: "Sprint 1.1",
-        images: ["ProfileIcon.png", "user2.png", "user3.png"]
+      logo: 'Frontend Redesign',
+      title: "Diagram user onboarding",
+      date: "Mar 23",
+      aim: 2,
+      plug: 3,
+      sprint: "Sprint 1.1",
+      images: ["ProfileIcon.png", "user2.png", "user3.png"]
     },
     {
-        logo: 'Frontend Redesign',
-        title: "Diagram user onboarding",
-        date: "Mar 23",
-        aim: 2,
-        plug: 3,
-        sprint: "Sprint 1.1",
-        images: ["ProfileIcon.png", "user2.png", "user3.png"]
+      logo: 'Frontend Redesign',
+      title: "Diagram user onboarding",
+      date: "Mar 23",
+      aim: 2,
+      plug: 3,
+      sprint: "Sprint 1.1",
+      images: ["ProfileIcon.png", "user2.png", "user3.png"]
     },
     {
-        logo: 'Frontend Redesign',
-        title: "Diagram user onboarding",
-        date: "Mar 23",
-        aim: 2,
-        plug: 3,
-        sprint: "Sprint 1.1",
-        images: ["ProfileIcon.png", "user2.png", "user3.png"]
+      logo: 'Frontend Redesign',
+      title: "Diagram user onboarding",
+      date: "Mar 23",
+      aim: 2,
+      plug: 3,
+      sprint: "Sprint 1.1",
+      images: ["ProfileIcon.png", "user2.png", "user3.png"]
     },
   ];
 
 
-  return(
+  return (
     <div className='px-4 flex flex-col'>
-      <div className={`w-[340px] rounded-tl-lg rounded-tr-lg ${light ? "bg-[#F2F7FD] text-gray-600": "bg-[#061123] text-white shadow-[#6B8CC266]"} py-2 text-center`}>
+      <div className={`w-[340px] rounded-tl-lg rounded-tr-lg ${light ? "bg-[#F2F7FD] text-gray-600" : "bg-[#061123] text-white shadow-[#6B8CC266]"} py-2 text-center`}>
         BACKLOG
-      </div>  
+      </div>
       <div>
-        <div className={`w-[340px] mt-2 rounded-lg ${light ? "bg-[#F2F7FD]": "bg-[#061123] shadow-[#6B8CC266]"}  h-[620px]   shadow-sm`}>
-            <div className='w-full flex items-center justify-between p-4'>
-                <div className='space-x-2 flex items-center justify-center'>
-                    <BiLoaderCircle />
-                    <p>Ready to Refine <span className={`${light ? "bg-white": "bg-[#12294E]"}px-1 rounded-md ml-2`}>3</span></p>
-                </div>
-                <div className='space-x-2 flex item-center justify-center'>
-                    <FaPlus />
-                    <LuAtom />
-                    <FaRegSquare />
-                </div>
+        <div className={`w-[340px] mt-2 rounded-lg ${light ? "bg-[#F2F7FD]" : "bg-[#061123] shadow-[#6B8CC266]"}  h-[620px]   shadow-sm`}>
+          <div className='w-full flex items-center justify-between p-4'>
+            <div className='space-x-2 flex items-center justify-center'>
+              <BiLoaderCircle />
+              <p>Ready to Refine <span className={`${light ? "bg-white" : "bg-[#12294E]"}px-1 rounded-md ml-2`}>3</span></p>
             </div>
-            <div className='px-3'>
-                {
-                    user.map((item, index) => {
-                        return (
-                          <Block key={index} light={light} title={item.title} date={item.date} logo={item.logo} aim={item.aim} plug={item.plug} sprint={item.sprint} images={item.images} />
-                        )
-                    })
-                }
+            <div className='space-x-2 flex item-center justify-center'>
+              <FaPlus />
+              <LuAtom />
+              <FaRegSquare />
             </div>
+          </div>
+          <div className='px-3'>
+            {
+              user.map((item, index) => {
+                return (
+                  <Block key={index} light={light} title={item.title} date={item.date} logo={item.logo} aim={item.aim} plug={item.plug} sprint={item.sprint} images={item.images} />
+                )
+              })
+            }
+          </div>
         </div>
       </div>
-  </div>
+    </div>
   )
 
   return (

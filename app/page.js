@@ -10,7 +10,7 @@ export default function Demo() {
 
   return (
     <>
-    kkkk
+    
       <Button onClick={() => setOpened(true)}>Open dropdown</Button>
 
       {opened && (
