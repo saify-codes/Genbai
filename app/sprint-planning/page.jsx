@@ -47,14 +47,14 @@ const page = () => {
     return (
         <>
             <Header light={lightMode} lightMode={lightMode} setLightMode={setLightMode} />
-            <div className='flex items-start justify-start w-full'>
-                <Sidebar light={lightMode} height={170} maxHeight={170} />
-                <div className="bg-[#06152D] w-full h-[170vh] text-[#99C0FF] overflow-x-scroll overflow-y-hidden">
+            <div className='flex items-center justify-start w-full'>
+                <Sidebar light={lightMode} height={"162vh"} />
+                <div className="bg-[#06152D] w-full h-[159vh] max-[1024px]:h-[169.8vh]  text-[#99C0FF] overflow-x-scroll  overflow-y-hidden">
                     <p className='flex items-center  justify-start m-4 text-[#6B8CC2]'>Project Name / Team name (Workflow Type) / <span className='text-[#99C0FF]'> &ensp;Sprints</span> </p>
                     <h1 className='text-2xl text-[#99C0FF] font-medium ml-4'>Sprints</h1>
                     <div className='flex items-center justify-start border-b  border-[#305288] text-[#305288] m-4'>
                         <p className='w-[130px] text-[#AECDFF] border-b border-[#AECDFF] text-[15px] text-center pb-2'>Sprint Planning</p>
-                        <p className='w-[130px] text-[15px] text-center pb-2'>Active Sprint</p>
+                        <p className='w-[130px]  text-[15px] text-center pb-2'>Active Sprint</p>
                         <p className='w-[130px] text-[15px] text-center pb-2'>Retrospectives</p>
                     </div>
                     <div className='ml-4 flex item-center justify-between'>
@@ -72,50 +72,13 @@ const page = () => {
 
                     </div>
                     <div className='flex items-start justify-start w-[1650px]'>
-                        <div className='w-[400px] m-3 rounded-lg bg-[#061123] h-[790px]  shadow-[#6B8CC266] shadow-sm'>
-                            <div className='w-full flex items-start justify-start flex-col p-4'>
-                                <h1 className='font-semibold text-[18px] mb-2'>Sprint Planning</h1>
-                                <p className='text-[14px]'>
-                                    Ths list contains incomplete Stories not yet included in a sprint, sorted by their due date. Stories in the ‘Backlog’ are not listed here.
-                                    <br />
-                                    <br />
-                                    Drag and drop stories into ‘Planned’ or ‘Active’ sprints as needed.
-                                    <br />
-                                    <br />
-                                    You can manage the progress of active sprints in detail on the Active Sprints tab.
-                                </p>
-                            </div>
-                            <div className='px-3'>
-                                {
-                                    user.map((item, index) => {
-                                        return (
-                                            <div key={index} className='p-4 bg-[#0A1D38] border border-[#143261] mb-1 shadow-[#6B8CC266] shadow-md'>
-                                                <p className='flex items-center text-[#6B8CC2] text-[15px]'> <IoFlag className='bg-[#1444E1] text-[#fff] text-[15px] rounded-sm p-[1px] mr-2' /> {item.logo}</p>
-                                                <h3 className='text-[#AECDFF] text-[17px] my-2'>{item.title}</h3>
-                                                <div className='flex items-center justify-start'>
-                                                    <span className='bg-[#F1B941] text-[#12294E] rounded-md px-[8px] py-[6px] mr-2 flex items-center justify-center space-x-2 text-[13.5px]'><FaRegCircle className='mr-1' /> Ready to Develop</span>
-                                                    <span className='bg-[#132C53] rounded-md px-[8px] py-[6px] mr-2 flex items-center justify-center space-x-2 text-[13.5px]'><FaCalendar className='mr-2' /> {item.date}</span>
-                                                    <span className='bg-[#132C53] rounded-md px-[8px] py-[6px] mr-2 flex items-center justify-center space-x-2 text-[13.5px]'><Image className='mr-2' src="/aim.png" alt="ada" width="14" height="14"></Image> {item.aim}</span>
-                                                    <span className='bg-[#132C53] rounded-md px-[8px] py-[6px] mr-2 flex items-center justify-center space-x-2 text-[13.5px]'><Image className='mr-2' src="/charger.png" alt="ada" width="14" height="14"></Image> {item.plug}</span>
-                                                </div>
-                                                <div className='flex items-center justify-between w-full'>
-                                                    <div className='flex items-center justify-between mt-4 w-full'>
-                                                        <div className='flex items-center space-x-1 text-[14px]'>
-                                                            <GiFallingStar className='rotate-180 flex items-center justify-center  bg-[#F46A2A] rounded-sm text-[14px] p-[1px] mr-2' />
-                                                            <p className='text-[#AECDFF]'>PRJ-1
-                                                            </p>
-                                                            <RiArrowUpDoubleLine className='text-red-500 text-[20px]' />
-                                                        </div>
-                                                        <div className='flex items-center'>
-                                                            <Image className='rounded-full mr-[-7px] z-20' src="/ProfileIcon.png" alt="ada" width="24" height="24"></Image>
-                                                            <Image className='mr-[-7px] z-10 rounded-full' src="/user2.jpg" alt="ada" width="24" height="24"></Image>
-                                                            <Image className='rounded-full' src="/user3.jpg" alt="ada" width="24" height="24"></Image>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>)
-                                    })
-                                }
+                        <div className='w-[400px] m-3 p-4 rounded-lg bg-[#061123] h-[590px]  shadow-[#6B8CC266] shadow-sm'>
+                            <h1 className='text-[18px] font-semibold'>Sprint Planning</h1>
+                            <div className='flex h-full items-center justify-center flex-col'>
+                                <Image src={"/no.png"} alt='not found' width={150} height={150} className='mb-2' />
+                                <h1 className='text-[#99C0FF] text-[17px] my-1 font-medium'>No Stories Found</h1>
+                                <p className='text-[#6B8CC2] mb-5'>Uh oh! No stories match your filters.</p>
+                                <button className='bg-[#4199F1] py-2 px-3 text-[#12294E] rounded-lg'>Clear Filter</button>
                             </div>
                         </div>
                         <div>
