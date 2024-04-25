@@ -1,18 +1,19 @@
-'use client';
+// 'use client';
 import { ThemeProvider, } from "@/context/ThemeContext";
 import Header from "./partials/header";
 import Sidebar from "./partials/sidebar";
 
 export default function ({ children }) {
+
   return (
     <ThemeProvider>
-      <div id="app" className="">
-        <Header />
-        <Sidebar />
-        <main className="p-4 overflow-auto">
-          {children}
-        </main>
-      </div>
+        <div id="app" className="">
+          <Header />
+          <Sidebar />
+          <main className="p-4 overflow-auto">
+            {children}
+          </main>
+        </div>
     </ThemeProvider>
   )
 }

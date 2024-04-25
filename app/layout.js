@@ -1,6 +1,7 @@
 import { createTheme, MantineProvider } from '@mantine/core';
 import "./globals.css";
 import "./app.css";
+import { AuthProvider } from '@/context/AuthContext';
 
 const theme = createTheme({
   /** Put your mantine theme override here */
@@ -15,9 +16,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <MantineProvider theme={theme}>
-          {children}
-        </MantineProvider>
+        <AuthProvider>
+          <MantineProvider theme={theme}>
+            {children}
+          </MantineProvider>
+        </AuthProvider>
       </body>
     </html>
   );

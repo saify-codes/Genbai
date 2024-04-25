@@ -30,7 +30,7 @@ export default function () {
 
         <Dropdown title="create story" icon={<GoPlus />} isBorder={true} style={style} />
         <Dropdown title="generate story in sprint" icon={<IoLogoReact />} isBorder={true} style={style} />
-        <Searchbar />
+        <Searchbar className="mr-auto" />
         <button className="mr-auto md:hidden" onClick={toggleSidebar}>
           <CiMenuFries/>
         </button>

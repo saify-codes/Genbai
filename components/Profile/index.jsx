@@ -1,7 +1,10 @@
+import { useAuth } from '@/context/AuthContext';
 import { Menu, Transition } from '@headlessui/react'
 import { Fragment, useEffect, useRef, useState } from 'react'
+import { TbLogout } from "react-icons/tb";
 
 export default function Example() {
+    const { logout } = useAuth();
     return (
         <Menu as="div" className="relative inline-block text-left">
             <div className="flex justify-center items-center">
@@ -126,6 +129,30 @@ export default function Example() {
                                         />
                                     )}
                                     Delete
+                                </button>
+                            )}
+                        </Menu.Item>
+                    </div>
+                    <div className="px-1 py-1">
+                        <Menu.Item>
+                            {({ active }) => (
+                                <button
+                                    onClick={logout}
+                                    className={`${active ? 'bg-violet-500 text-white' : 'text-gray-900'
+                                        } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                                >
+                                    {active ? (
+                                        <TbLogout
+                                            className="mr-2 h-5 w-5 text-violet-400"
+                                            aria-hidden="true"
+                                        />
+                                    ) : (
+                                        <TbLogout
+                                            className="mr-2 h-5 w-5 text-violet-400"
+                                            aria-hidden="true"
+                                        />
+                                    )}
+                                    Logout
                                 </button>
                             )}
                         </Menu.Item>

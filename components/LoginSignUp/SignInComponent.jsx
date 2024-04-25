@@ -8,12 +8,37 @@ import { useTheme } from '@/context/ThemeContext';
 import { GoogleIcon } from '@/utils/svg_icons';
 import Link from 'next/link';
 import Logo from '@/public/logo.png';
+import MyAxios from '@/utils/AxiosConfig';
+import showToastMessage from '../ToastMessage/Index';
+import { useAuth } from '@/context/AuthContext';
+import SimpleLoader from '../Loader/SimpleLoader';
 
 const SignInComponent = () => {
     // const { theme } = useTheme();
     const router = useRouter()
+    const { login } = useAuth()
     const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
 
+    const handleLogin = () => {
+        setLoading(true);
+        MyAxios.post("/auth/login", { email, password })
+        .then(res => {
+            console.log(res.data, "resp:login");
+            if(res.data.success){
+                showToastMessage(res?.data?.message, "success");
+                login(res?.data);
+                setLoading(false);
+                router.push('/backlog');
+            }
+        })
+        .catch(error => {
+            setLoading(false);
+            console.log(error.response, "error:login");
+            showToastMessage(error.response?.data?.message || "Something went wrong", "error");
+        })
+    }
 
   return (
     <>
@@ -41,12 +66,16 @@ const SignInComponent = () => {
                     label="Password"
                     placeholder="Enter Your Password"
                     styles={{
-                        input: { background: '#06152D', color: '#ffffff' } // Adding background color to the input and changing text color to white for better visibility
+                        input: { background: '#06152D', color: '#ffffff' }
                     }}
+                    onChange={(event) => setPassword(event.currentTarget.value)}
                 />
             </div>
             <div className='mt-4'>
-                <button onClick={()=>router.push('/backlog')} className='rounded-md font-bold text-[#12294E] bg-[#4199F1] hover:bg-[#4991d8] p-3 w-full'>Get Started for Free</button>
+                <button onClick={handleLogin} className='rounded-md font-bold text-[#12294E] bg-[#4199F1] hover:bg-[#4991d8] p-3 w-full flex justify-center items-center gap-3'>
+                    <span>Get Started for Free</span>
+                    <SimpleLoader show={loading} />
+                </button>
             </div>
             <p className="mt-3 text-center font-semibold">OR</p>
             <div className='mt-4'>

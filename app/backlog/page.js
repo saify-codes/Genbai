@@ -10,6 +10,7 @@ import BreadCrumb from "@/components/BreadCrumb/BreadCrumb";
 import DragAndDrop from "@/components/DragAndDrop";
 
 import Dropdown from "@/components/Dropdown";
+import withAuth from "@/components/HOC/withAuth";
 import Searchbar from "@/components/Searchbar";
 import MyTabs from "@/components/Tabs/BackLogTabs";
 import { useTheme } from "@/context/ThemeContext";
@@ -34,7 +35,7 @@ const selectedTabData = {
     2: <DragAndDrop />,
 }
 
-export default function () {
+function BacklogPage () {
     const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
     console.log(selectedTab, "===selectedTabaabbbsss");
@@ -50,3 +51,5 @@ export default function () {
     </AppLayout>
   );
 }
+
+export default withAuth(BacklogPage);
