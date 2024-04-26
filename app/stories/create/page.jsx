@@ -1,10 +1,10 @@
 'use client'
 import Header from '@/components/Header'
 import Sidebar from '@/components/Sidebar'
+import Image from 'next/image'
 import { LuAtom } from "react-icons/lu";
 import { FaEye, FaPlus } from "react-icons/fa";
 import { IoIosArrowDown, IoIosSearch } from 'react-icons/io'
-import Image from 'next/image'
 import { useState } from 'react'
 import { IoSearch } from "react-icons/io5";
 import { IoGift } from "react-icons/io5";

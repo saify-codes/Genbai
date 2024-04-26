@@ -3,21 +3,15 @@ import Header from '@/components/Header'
 import Sidebar from '@/components/Sidebar'
 import Image from 'next/image'
 import React, { useState } from 'react'
-import { BiLoaderCircle } from 'react-icons/bi'
-import { FaXmark } from "react-icons/fa6";
-import { GiFallingStar } from 'react-icons/gi'
-import { MdMenuBook, MdOutlineKeyboardDoubleArrowDown } from 'react-icons/md'
-import { RiLoopLeftFill } from "react-icons/ri";
-import { IoInformationCircleSharp } from "react-icons/io5"
-import { FaAngleRight } from "react-icons/fa6";
-import { IoIosArrowDown, IoIosSearch, IoSearch } from "react-icons/io";
-import { FaCircle } from "react-icons/fa";
 import { LuAtom } from "react-icons/lu";
 import { FaEye, FaPlus } from "react-icons/fa";
+import { IoIosArrowDown, IoIosSearch } from 'react-icons/io'
+import { IoSearch } from "react-icons/io5";
 import { IoGift } from "react-icons/io5";
-import { CiCompass1 } from "react-icons/ci";
-import Status from '@/components/Status'
+import { PiBookOpenTextDuotone } from "react-icons/pi";
+import { FaCircle } from "react-icons/fa";
 import Stories from '@/components/Stories'
+
 const page = () => {
     const [lightMode, setLightMode] = useState(false)
     const [eppic, setEpic] = useState(false)
@@ -60,19 +54,18 @@ const page = () => {
             <Header light={lightMode} lightMode={lightMode} setLightMode={setLightMode} />
             <div className='flex items-start justify-between w-full'>
                 <Sidebar light={lightMode} height={166} />
-                <div className="bg-[#06152D] w-full h-[166vh] text-[#99C0FF]">
+                <div className="bg-[#06152D] w-full h-[166vh] text-[#99C0FF] overflow-x-scroll">
                     <p className='flex items-center justify-start m-4 text-[#6B8CC2]'>Project Name / Teamname /  Sprint / <span className='flex items-center justify-center text-[#99C0FF]'>&ensp;  <Image src={"/spr.png"} alt="sprint icon" width={16} height={16} className='mr-2' /> Sprint Name</span> </p>
                     <div className='flex items-center justify-start border-b  border-[#305288] text-[#305288] m-4'>
                         <p className='w-[130px] text-[#AECDFF] border-b border-[#AECDFF] text-[15px] text-center pb-2'>Overview</p>
                         <p className='w-[130px]  text-[15px] text-center pb-2'>Sprint Board</p>
                         <p className='w-[130px] text-[15px] text-center pb-2'>Retrospectives</p>
                     </div>
-                    <div className='flex items-start  justify-between w-full'>
+
+                    <div className='flex items-start justify-between w-full'>
                         <div>
-
                             <div className="w-full pl-4">
-                                <h1 className='p-3 text-2xl text-[#99C0FF] font-semibold border border-[#143261] w-[600px] rounded-md'>Some Sprints Name</h1>
-
+                                <h1 className='p-3 text-2xl text-[#99C0FF] font-semibold w-[600px] rounded-md'>Sprints Name</h1>
                             </div>
                             <div className='ml-4 mt-4  flex item-center justify-between'>
                                 <div className='flex items-center space-x-3 top-[300px]'>
@@ -279,11 +272,38 @@ const page = () => {
                                 </div>
                                 <button className='mr-4 text-[15px] flex items-center justify-center bg-[#12294E] border border-[#143261] rounded-sm py-2 px-3'> <FaEye /> &ensp;<span className='text-[#99C0FF]'>&ensp;Display</span></button>
                             </div>
-                            <Stories user={user} />
-                            <Stories user={user} />
-                            <Stories user={user} />
-                            <Stories user={user} />
-                            <Stories user={user} />
+                            <div className='flex items-center justify-between w-full m-4'>
+                                <div className='flex items-center justify-center'>
+                                    <p className='mr-2'>Mar 23, 2023 - Jan 31, 2024</p>
+                                    <div className='p-1 flex mr-2 items-center px-2 justify-center rounded-md bg-[#132C53]'>
+                                        <PiBookOpenTextDuotone className='mr-2' /> 80
+                                    </div>
+                                    <div className='p-1 flex mr-2 items-center justify-center rounded-md  px-2 bg-[#132C53]'>
+                                        <Image className='mr-2' alt='bug' width={20} height={20} src="/err.png" >
+                                        </Image> 2
+                                    </div>
+                                    <div className='p-1 flex mr-2 items-center justify-center rounded-md  px-2 bg-[#132C53]'>
+                                        <Image className='mr-2' alt='bug' width={20} height={20} src="/medal.png" >
+                                        </Image> 2
+                                    </div>
+                                    <div className='p-1 flex mr-2 items-center justify-center rounded-md  px-2 bg-[#132C53]'>
+                                        <Image className='mr-2' alt='bug' width={20} height={20} src="/chem.png" >
+                                        </Image> 2
+                                    </div>
+                                    <div className='p-1 flex mr-2 items-center justify-center rounded-md  px-2 bg-[#132C53]'>
+                                        <Image className='mr-2' alt='bug' width={20} height={20} src="/kam.png" >
+                                        </Image> 2
+                                    </div>
+                                </div>
+                                <div>
+                                </div>
+                            </div>
+                            <div className='m-2 mt-4 flex items-center justify-center w-full'>
+                                <Stories user={user} />
+                                <Stories user={user} />
+                                <Stories user={user} />
+                                <Stories user={user} />
+                            </div>
                         </div>
                     </div>
                 </div>
