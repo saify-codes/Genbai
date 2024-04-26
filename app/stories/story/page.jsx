@@ -459,7 +459,7 @@ const page = () => {
                                                             <input type="checkbox" className='rounded-sm appearance-none w-[15px] h-[15px] bg-[#0a1d38] border border-[#143261] mr-4' />   {item.id}
                                                         </th>
                                                         <td className="flex items-center justify-center px-6 py-4">
-                                                            <Image className='mr-2' src="ticket.png" alt="ticket" width={15} height={15} /> {item.type}
+                                                            <Image className='mr-2' src="/ticket.png" alt="ticket" width={15} height={15} /> {item.type}
                                                         </td>
                                                         <td className="px-6 py-4">
                                                             {item.name}
@@ -468,10 +468,10 @@ const page = () => {
                                                             {item.epic}
                                                         </td>
                                                         <td className="px-6 py-4">
-                                                            <Image src="paint.png" width={25} height={25} alt='paint brush' />
+                                                            <Image src="/paint.png" width={25} height={25} alt='paint brush' />
                                                         </td>
                                                         <td className="px-6 py-4">
-                                                            <Image src="ProfileIcon.png" width={25} height={25} alt='paint brush' />
+                                                            <Image src="/ProfileIcon.png" width={25} height={25} alt='paint brush' />
                                                         </td>
                                                         <td className="px-6 py-4">
                                                             {item.Workflow}

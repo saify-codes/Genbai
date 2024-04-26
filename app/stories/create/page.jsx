@@ -1,8 +1,8 @@
 'use client'
 import Header from '@/components/Header'
 import Sidebar from '@/components/Sidebar'
-import Stories from '@/components/Stories'
-import { FaEye } from "react-icons/fa";
+import { LuAtom } from "react-icons/lu";
+import { FaEye, FaPlus } from "react-icons/fa";
 import { IoIosArrowDown, IoIosSearch } from 'react-icons/io'
 import Image from 'next/image'
 import { useState } from 'react'
@@ -18,35 +18,7 @@ const page = () => {
     const [deliverable, setDeliverable] = useState(false)
     const [sprint, setSprint] = useState(false)
     const [label, setLabel] = useState(false)
-    const user = [
-        {
-            logo: 'Frontend Redesign',
-            title: "Diagram user onboarding",
-            date: "Mar 23",
-            aim: 2,
-            plug: 3,
-            sprint: "Sprint 1.1",
-            images: ["ProfileIcon.png", "user2.png", "user3.png"]
-        },
-        {
-            logo: 'Frontend Redesign',
-            title: "Diagram user onboarding",
-            date: "Mar 23",
-            aim: 2,
-            plug: 3,
-            sprint: "Sprint 1.1",
-            images: ["ProfileIcon.png", "user2.png", "user3.png"]
-        },
-        {
-            logo: 'Frontend Redesign',
-            title: "Diagram user onboarding",
-            date: "Mar 23",
-            aim: 2,
-            plug: 3,
-            sprint: "Sprint 1.1",
-            images: ["ProfileIcon.png", "user2.png", "user3.png"]
-        },
-    ]
+
     return (
         <>
             <Header light={lightMode} lightMode={lightMode} setLightMode={setLightMode} />
@@ -261,11 +233,17 @@ const page = () => {
                         </div>
                         <button className='mr-4 text-[15px] flex items-center justify-center bg-[#12294E] border border-[#143261] rounded-sm py-2 px-3'> <FaEye /> &ensp;<span className='text-[#99C0FF]'>&ensp;Display</span></button>
                     </div>
-                    <div className='flex flex-col space-y-2 items-center justify-center p-4'>
-                        <Image src="no.png" width={200} height={200} alt='No Stories' />
-                        <h1 className='font-semibold text-[#99C0FF] text-xl'>No Stories Found</h1>
-                        <p className='text-[#6B8CC2]'>Uh oh! No stories match your filters.</p>
-                        <button className='bg-[#4199F1] text-[#06152D] px-4 rounded-md py-[10px] font-semibold cursor-pointer'>Clear Filter</button>
+                    <div className='flex flex-col space-y-2 items-center justify-center p-4 mt-4'>
+                        <Image src={"/page.png"} width={180} height={180} alt='No Stories' />
+                        <h1 className='mb-2 font-semibold text-[#99C0FF] text-xl'>Your Story Starts Here!</h1>
+                        <p className='text-[#6B8CC2] w-[480px] text-center'>Use stories to define features, tasks, needs, or bugs for your team to track and monitor progress of daily work.
+                            <br />
+                        </p>
+                        <span className='mt-4 text-[#6B8CC2] w-[480px] text-center'>
+                            Get started by creating a Story manually, or use our smart AI to effortlessly generate one in an industry-standard agile format.
+                        </span>
+                        <button className='bg-[#4199F1] flex items-center mt-2 text-[#06152D] px-4 rounded-md py-[10px] font-semibold cursor-pointer'><FaPlus className="mr-2" /> Create Story</button>
+                        <button className='bg-[#436BEF] flex items-center text-[#06152D] px-4 rounded-md py-[10px] font-semibold cursor-pointer'><LuAtom className="mr-2" /> Generate Story</button>
                     </div>
                 </div>
             </div>

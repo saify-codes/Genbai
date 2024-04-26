@@ -55,7 +55,7 @@ const Sidebar = ({ height, light, maxHeight }) => {
                         <Links light={light} className="mt-1" title={"Design Theme"} icon={<Image src={"/Teamicons.png"} width={20} height={30} alt='Teams' />} />
                     </div>
                 </div>
-                <div className={`${light ? 'border-t border-[#CCE4FF]' : "px-3 py-4 mt-20 border-t border-[#07335F]"}`}>
+                <div className={`${light ? 'border-t border-[#CCE4FF]' : "px-3 py-4 mt-[4rem] border-t border-[#07335F]"}`}>
                     <Links light={light} title={"Invite Members"} icon={<FaUserPlus className='text-[18.8px]' />} />
                     <Links light={light} title={"Settings"} icon={<IoIosSettings className='text-[18.8px]' />} />
                     <Links light={light} title={"Help"} icon={<IoIosHelpCircle className='text-[18.8px]' />} />

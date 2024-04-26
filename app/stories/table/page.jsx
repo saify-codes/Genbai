@@ -332,7 +332,7 @@ const page = ({ isOpen = false }) => {
                                                             <input type="checkbox" className='rounded-sm appearance-none w-[15px] h-[15px] bg-[#0a1d38] border border-[#143261] mr-4' />   {item.id}
                                                         </th>
                                                         <td className="flex items-center justify-center px-6 py-4">
-                                                            <Image className='mr-2' src="ticket.png" alt="ticket" width={15} height={15} /> {item.type}
+                                                            <Image className='mr-2' src="/ticket.png" alt="ticket" width={15} height={15} /> {item.type}
                                                         </td>
                                                         <td className="px-6 py-4">
                                                             {item.name}
@@ -341,10 +341,10 @@ const page = ({ isOpen = false }) => {
                                                             {item.epic}
                                                         </td>
                                                         <td className="px-6 py-4">
-                                                            <Image src="paint.png" width={25} height={25} alt='paint brush' />
+                                                            <Image src="/paint.png" width={25} height={25} alt='paint brush' />
                                                         </td>
                                                         <td className="px-6 py-4">
-                                                            <Image src="ProfileIcon.png" width={25} height={25} alt='paint brush' />
+                                                            <Image src="/ProfileIcon.png" width={25} height={25} alt='paint brush' />
                                                         </td>
                                                         <td className="px-6 py-4">
                                                             {item.Workflow}
@@ -363,7 +363,7 @@ const page = ({ isOpen = false }) => {
                                 </table>
                             </div>
                             <div className="flex items-center w-full flex-col justify-center mt-2">
-                            <div className='w-[1500px] ml-[360px]'>
+                                <div className='w-[1500px] ml-[360px]'>
                                     <TableHeader opened={opened} toggle={toggle} />
                                 </div>
                                 <table className="overflow-y-scroll ml-[360px] w-[1500px] text-sm text-left rtl:text-right rounded-md bg-[#0A1D38] border border-[#143261]">
@@ -407,7 +407,7 @@ const page = ({ isOpen = false }) => {
                                                             <input type="checkbox" className='rounded-sm appearance-none w-[15px] h-[15px] bg-[#0a1d38] border border-[#143261] mr-4' />   {item.id}
                                                         </th>
                                                         <td className="flex items-center justify-center px-6 py-4">
-                                                            <Image className='mr-2' src="ticket.png" alt="ticket" width={15} height={15} /> {item.type}
+                                                            <Image className='mr-2' src="/ticket.png" alt="ticket" width={15} height={15} /> {item.type}
                                                         </td>
                                                         <td className="px-6 py-4">
                                                             {item.name}
@@ -416,10 +416,10 @@ const page = ({ isOpen = false }) => {
                                                             {item.epic}
                                                         </td>
                                                         <td className="px-6 py-4">
-                                                            <Image src="paint.png" width={25} height={25} alt='paint brush' />
+                                                            <Image src={"/paint.png"} width={25} height={25} alt='paint brush' />
                                                         </td>
                                                         <td className="px-6 py-4">
-                                                            <Image src="ProfileIcon.png" width={25} height={25} alt='paint brush' />
+                                                            <Image src={"/Profileicon.png"} width={25} height={25} alt='No Stories' />
                                                         </td>
                                                         <td className="px-6 py-4">
                                                             {item.Workflow}

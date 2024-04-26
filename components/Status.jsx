@@ -1,7 +1,7 @@
+import Image from 'next/image';
 import React from 'react'
 import { IoIosArrowDown } from "react-icons/io";
 import { FaCircle } from "react-icons/fa";
-import Image from 'next/image';
 import { CiCompass1 } from "react-icons/ci";
 import { FaCalendar } from "react-icons/fa";
 
