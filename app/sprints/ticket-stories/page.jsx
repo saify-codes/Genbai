@@ -5,21 +5,56 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import { BiLoaderCircle } from 'react-icons/bi'
 import { FaXmark } from "react-icons/fa6";
-import { FaCalendar, FaPlus } from 'react-icons/fa'
 import { GiFallingStar } from 'react-icons/gi'
-import { LuAtom } from 'react-icons/lu'
 import { MdMenuBook, MdOutlineKeyboardDoubleArrowDown } from 'react-icons/md'
 import { RiLoopLeftFill } from "react-icons/ri";
 import { IoInformationCircleSharp } from "react-icons/io5"
 import { FaAngleRight } from "react-icons/fa6";
-import { IoIosArrowDown } from "react-icons/io";
-import { RxLoop } from "react-icons/rx";
+import { IoIosArrowDown, IoIosSearch, IoSearch } from "react-icons/io";
 import { FaCircle } from "react-icons/fa";
+import { LuAtom } from "react-icons/lu";
+import { FaEye, FaPlus } from "react-icons/fa";
+import { IoGift } from "react-icons/io5";
 import { CiCompass1 } from "react-icons/ci";
 import Status from '@/components/Status'
+import Stories from '@/components/Stories'
 const page = () => {
     const [lightMode, setLightMode] = useState(false)
-
+    const [eppic, setEpic] = useState(false)
+    const [owner, setOwner] = useState(false)
+    const [storyType, setStoryType] = useState(false)
+    const [deliverable, setDeliverable] = useState(false)
+    const [sprint, setSprint] = useState(false)
+    const [label, setLabel] = useState(false)
+    const user = [
+        {
+            logo: 'Frontend Redesign',
+            title: "Diagram user onboarding",
+            date: "Mar 23",
+            aim: 2,
+            plug: 3,
+            sprint: "Sprint 1.1",
+            images: ["ProfileIcon.png", "user2.png", "user3.png"]
+        },
+        {
+            logo: 'Frontend Redesign',
+            title: "Diagram user onboarding",
+            date: "Mar 23",
+            aim: 2,
+            plug: 3,
+            sprint: "Sprint 1.1",
+            images: ["ProfileIcon.png", "user2.png", "user3.png"]
+        },
+        {
+            logo: 'Frontend Redesign',
+            title: "Diagram user onboarding",
+            date: "Mar 23",
+            aim: 2,
+            plug: 3,
+            sprint: "Sprint 1.1",
+            images: ["ProfileIcon.png", "user2.png", "user3.png"]
+        },
+    ]
     return (
         <>
             <Header light={lightMode} lightMode={lightMode} setLightMode={setLightMode} />
@@ -39,131 +74,216 @@ const page = () => {
                                 <h1 className='p-3 text-2xl text-[#99C0FF] font-semibold border border-[#143261] w-[600px] rounded-md'>Some Sprints Name</h1>
 
                             </div>
-                            <div className='m-4'>
-                                <div className='flex items-center justify-between p-3 border-b border-[#143261]'>
-                                    <div className='flex items-center justify-center '>
-                                        <RiLoopLeftFill />
-                                        <p className='mx-2'>Sprint Retrospective</p>
-                                        <IoInformationCircleSharp className="text-[#6b8cc2] text-[17px]" />
+                            <div className='ml-4 mt-4  flex item-center justify-between'>
+                                <div className='flex items-center space-x-3 top-[300px]'>
+                                    <div className='bg-[#0A1D38] border border-[#143261] rounded-sm py-[7px] flex items-center justify-start px-2 outline-none w-[280px]'>
+                                        <IoIosSearch className='text-[20px] mr-4 text-[#305288]' />
+                                        <input type="text" className='bg-transparent w-full outline-none placeholder:text-[#305288]' placeholder='Search Stories' />
                                     </div>
-                                    <div>
-                                        <FaAngleRight />
+                                    <button onClick={() => setOwner(!owner)} className='text-[15px] flex items-center justify-center bg-[#12294E] border border-[#143261] rounded-sm p-2'> <span className='text-[#99C0FF]'>&ensp;Owner&ensp;</span> <IoIosArrowDown /></button>
+                                    <div className={`${owner ? "fixed rounded-lg w-[300px] z-10  bg-[#0A1D38] p-4 overflow-y-scroll h-[350px] top-[14rem] left-[31rem]" : "hidden"}`}>
+                                        <h1 className="text-[14px]">FILTER BY OWNER</h1>
+                                        <div className="mt-2 border border-[#305288] flex items-center justify-center p-2 rounded-lg">
+                                            <IoSearch />
+                                            <input className="w-full bg-transparent pl-2 text-[15px] outline-none" type="text" placeholder='Search Owners' />
+                                        </div>
+                                        <p className='my-4 rounded-md border border-[#143261] bg-[#12294E] p-2 pl-4'>All Owners</p>
+                                        <div>
+                                            <h4 className='text-[14px]'>No Owners</h4>
+                                            <ul>
+                                                <li className='flex items-center mt-4'>
+                                                    <Image src="/owner.png" className='mr-2' width="20" height="20" />
+                                                    John Doe</li>
+                                                <li className='flex items-center mt-4'>
+                                                    <Image src="/owner.png" className='mr-2' width="20" height="20" />
+                                                    John Doe</li>
+                                                <li className='flex items-center mt-4'>
+                                                    <Image src="/owner.png" className='mr-2' width="20" height="20" />
+                                                    John Doe</li>
+
+                                            </ul>
+                                        </div>
+                                        <div className='mt-3'>
+                                            <h4 className='text-[14px]'>TEAM NAME</h4>
+                                            <ul>
+                                                <li className='flex items-center mt-4'>
+                                                    <Image src="/owner.png" className='mr-2' width="20" height="20" />
+                                                    John Doe</li>
+                                                <li className='flex items-center mt-4'>
+                                                    <Image src="/owner.png" className='mr-2' width="20" height="20" />
+                                                    John Doe</li>
+                                                <li className='flex items-center mt-4'>
+                                                    <Image src="/owner.png" className='mr-2' width="20" height="20" />
+                                                    John Doe</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <button onClick={() => setEpic(!eppic)} className='text-[15px] flex items-center justify-center bg-[#12294E] border border-[#143261] rounded-sm p-2'> <span className='text-[#99C0FF]'>&ensp;Epics&ensp;</span> <IoIosArrowDown /></button>
+                                    <div className={`${eppic ? "fixed rounded-lg w-[300px] bg-[#0A1D38] p-4 overflow-y-scroll h-[350px] top-[14rem] left-[37rem] z-20" : "hidden"}`}>
+                                        <h1 className="text-[14px]">FILTER BY TOPIC</h1>
+                                        <div className="mt-2 border border-[#305288] flex items-center justify-center p-2 rounded-lg">
+                                            <IoSearch />
+                                            <input className="w-full bg-transparent pl-2 text-[15px] outline-none" type="text" placeholder='Search Epics' />
+                                        </div>
+                                        <p className='my-4 rounded-md border border-[#143261] bg-[#12294E] p-2 pl-4'>All Epics</p>
+                                        <div>
+                                            <h4 className='text-[14px]'>PLANNED</h4>
+                                            <ul>
+                                                <li className='flex items-center mt-2'>
+                                                    <Image src="/circle2.png" className='mr-2' width="20" height="20" />
+                                                    Epic Name</li>
+                                                <li className='flex items-center mt-2'>
+                                                    <Image src="/circle2.png" className='mr-2' width="20" height="20" />
+                                                    Epic Name</li>
+                                            </ul>
+                                        </div>
+                                        <div className='mt-3'>
+                                            <h4 className='text-[14px]'>IN PROGRESS</h4>
+                                            <ul>
+                                                <li className='flex items-center mt-2'>
+                                                    <Image src="/PhaseIcons.png" className='mr-2' width="20" height="20" />
+                                                    Epic Name</li>
+                                                <li className='flex items-center mt-2'>
+                                                    <Image src="/PhaseIcons.png" className='mr-2' width="20" height="20" />
+                                                    Epic Name</li>
+                                            </ul>
+                                        </div>
+                                        <div className='mt-3'>
+                                            <h4 className='text-[14px]'>DONE</h4>
+                                            <ul>
+                                                <li className='flex items-center mt-2'>
+                                                    <Image src="/tick.png" className='mr-2' width="20" height="20" />
+                                                    Epic Name</li>
+                                                <li className='flex items-center mt-2'>
+                                                    <Image src="/tick.png" className='mr-2' width="20" height="20" />
+                                                    Epic Name</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <button onClick={() => setStoryType(!storyType)} className='text-[15px] flex items-center justify-center bg-[#12294E] border border-[#143261] rounded-sm p-2 '> <span className='text-[#99C0FF]'>&ensp;Story Types&ensp;</span> <IoIosArrowDown /></button>
+                                    <div className={`${storyType ? "fixed rounded-lg w-[300px] z-30 bg-[#0A1D38] p-4 overflow-y-scroll h-[350px] top-[14rem] left-[43rem]" : "hidden"}`}>
+                                        <h1 className="text-[14px]">FILTER BY STORY TYPE</h1>
+                                        <p className='my-4 rounded-md border border-[#143261] bg-[#12294E] p-2 pl-4'>All Types</p>
+                                        <div>
+                                            <ul>
+                                                <li className='flex items-center mt-2'>
+                                                    <Image src="/star.png" className='mr-2' width="20" height="20" />
+                                                    Features</li>
+                                                <li className='flex items-center mt-3'>
+                                                    <Image src="/err.png" className='mr-2' width="20" height="20" />
+                                                    Bugs</li>
+                                                <li className='flex items-center mt-3'>
+                                                    <Image src="/pen.png" className='mr-2' width="20" height="20" />
+                                                    Design</li>
+                                                <li className='flex items-center mt-3'>
+                                                    <Image src="/medal.png" className='mr-2' width="20" height="20" />
+                                                    QA Tests</li>
+                                                <li className='flex items-center mt-3'>
+                                                    <Image src="/chem.png" className='mr-2' width="20" height="20" />
+                                                    Spikes</li>
+                                                <li className='flex items-center mt-3'>
+                                                    <Image src="/kam.png" className='mr-2' width="20" height="20" />
+                                                    Tasks</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <button onClick={() => setSprint(!sprint)} className='text-[15px] flex items-center justify-center bg-[#12294E] border border-[#143261] rounded-sm p-2'> <span className='text-[#99C0FF]'>&ensp;Sprints&ensp;</span> <IoIosArrowDown /></button>
+                                    <div className={`${sprint ? "fixed rounded-lg w-[300px]   bg-[#0A1D38] p-4 overflow-y-scroll h-[350px] top-[14rem] left-[52rem] z-40" : "hidden"}`}>
+                                        <h1 className="text-[14px]">FILTER BY SPRINT</h1>
+                                        <div className="mt-2 border border-[#305288] flex items-center justify-center p-2 rounded-lg">
+                                            <IoSearch />
+                                            <input className="w-full bg-transparent pl-2 text-[15px] outline-none" type="text" placeholder='Search Sprints' />
+                                        </div>
+                                        <p className='my-4 rounded-md border border-[#143261] bg-[#12294E] p-2 pl-4'>All Sprints</p>
+                                        <div>
+                                            <ul>
+                                                <li className='flex items-center mt-4'>
+                                                    <Image src="/spr.png" className='mr-2' width="20" height="20" />
+                                                    Sprint Name</li>
+                                                <li className='flex items-center mt-4'>
+                                                    <Image src="/spr.png" className='mr-2' width="20" height="20" />
+                                                    Sprint Name</li>
+                                                <li className='flex items-center mt-4'>
+                                                    <Image src="/spr.png" className='mr-2' width="20" height="20" />
+                                                    Sprint Name</li>
+                                                <li className='flex items-center mt-4'>
+                                                    <Image src="/spr.png" className='mr-2' width="20" height="20" />
+                                                    Sprint Name</li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <button className='text-[15px] flex items-center justify-center bg-[#12294E] border border-[#143261] rounded-sm p-2 ' onClick={() => setDeliverable(!deliverable)}> <span className='text-[#99C0FF]'>&ensp;Deliverables&ensp;</span> <IoIosArrowDown /></button>
+                                    <div className={`${deliverable ? "fixed rounded-lg w-[300px] z-30 bg-[#0A1D38] p-4 overflow-y-scroll h-[350px] top-[14rem] left-[59rem]" : "hidden"}`}>
+                                        <h1 className="text-[14px]">FILTER BY DELIVERABLE</h1>
+                                        <p className='my-4 rounded-md border border-[#143261] bg-[#12294E] p-2 pl-4'>All Deliverables</p>
+                                        <div>
+                                            <ul>
+                                                <li className='flex items-center mt-2'>
+
+                                                    Show Design Deliverables    </li>
+                                                <li className='flex items-center mt-3'>
+
+                                                    Show Spike Deliverables</li>
+                                                <h1 className="text-[14px] mt-4">PLANNING</h1>
+                                                <li className='flex items-center mt-3 '>
+                                                    <IoGift className='text-purple-600 mr-3 text-[20px]' /> Implementation Plan</li>
+                                                <li className='flex items-center mt-3 '>
+                                                    <IoGift className='text-green-600 mr-3 text-[20px]' />
+                                                    Research Report</li>
+                                                <li className='flex items-center mt-3 '>
+                                                    <IoGift className='text-red-600 mr-3 text-[20px]' />
+                                                    Feasiblity Report</li>
+                                                <li className='flex items-center mt-3 '>
+                                                    <IoGift className='text-orange-600 mr-3 text-[20px]' />
+                                                    Recommendations</li>
+                                                <h1 className="text-[14px] mt-4">DESIGN</h1>
+                                                <li className='flex items-center mt-3 '>
+                                                    <IoGift className='text-purple-600 mr-3 text-[20px]' /> Wireframe</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <button onClick={() => setLabel(!label)} className='text-[15px] flex items-center justify-center bg-[#12294E] border border-[#143261] rounded-sm p-2 '> <span className='text-[#99C0FF]'>&ensp;Labels&ensp;</span> <IoIosArrowDown /></button>
+                                    <div className={`${label ? "fixed rounded-lg w-[260px] z-30 bg-[#0A1D38] p-4 overflow-y-scroll h-[350px] top-[14rem] left-[68rem]" : "hidden"}`}>
+                                        <h1 className="text-[14px]">FILTER BY LABEL</h1>
+                                        <p className='my-4 rounded-md border border-[#143261] bg-[#12294E] p-2 pl-4'>All Labels</p>
+                                        <div>
+                                            <ul>
+                                                <li className='flex items-center mt-2'>
+                                                    <FaCircle className='mr-2 text-sky-500' />
+                                                    Frontend    </li>
+                                                <li className='flex items-center mt-3'>
+                                                    <FaCircle className='mr-2 text-purple-500' />
+                                                    Backend</li>
+                                                <li className='flex items-center mt-3 '>
+                                                    <FaCircle className='mr-2 text-pink-7   00' />
+                                                    MVP</li>
+                                                <li className='flex items-center mt-3 '>
+                                                    <FaCircle className='mr-2 text-purple-500' />
+                                                    API</li>
+                                                <li className='flex items-center mt-3 '>
+                                                    <FaCircle className='mr-2 text-lime-500' />
+                                                    Mobile</li>
+                                                <li className='flex items-center mt-3 '>
+                                                    <FaCircle className='mr-2 text-orange-500' />
+                                                    Desktop </li>
+                                                <li className='flex items-center mt-3 '>
+                                                    <FaCircle className='mr-2 text-yellow-500' />
+                                                    App</li>
+                                                <li className='flex items-center mt-3 '>
+                                                    <FaCircle className='mr-2 text-pink-500' />
+                                                    Web</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className='flex items-center justify-between w-full bg-[#132C53] mt-4  px-3 py-4 rounded-md'>
-                                    <div className='flex items-center'>
-                                        <strong className='text-[14px] mr-2'>Sprint Retrospectives</strong><p className='text-[14px]'> are meetings after the end of a ‘Sprint’ that help your team identify wins and challenges to improve performance and teamwork in future sprints.</p>
-                                    </div>
-                                    <FaXmark />
-                                </div>
+                                <button className='mr-4 text-[15px] flex items-center justify-center bg-[#12294E] border border-[#143261] rounded-sm py-2 px-3'> <FaEye /> &ensp;<span className='text-[#99C0FF]'>&ensp;Display</span></button>
                             </div>
-                            <div className='m-4 mt-6'>
-                                <strong className=''>Meeeting Date</strong>
-                                <div className='bg-[#132C53] mb-3 mt-3 flex items-center justify-start w-[300px] border border-[#143261] rounded-md p-3'>  <FaCalendar className='mr-2' />None </div>
-                                <strong>Participiants</strong><br />
-                                <div className='flex items-center'>
-                                    <select name="" id="" className='mt-3 bg-[#132C53] flex items-center justify-start outline-none w-[300px] border border-[#143261] rounded-md p-3'>
-                                        <option value="" className=''> <Image src="/circle.png" width={20} height={20} alt='profile icon' /> Select Participants</option>
-                                    </select><span className='ml-2'>...</span>
-                                </div>
-                                <div className='flex items-center'>
-                                    <select name="" id="" className='mt-3 bg-[#132C53] flex items-center justify-start outline-none w-[300px] border border-[#143261] rounded-md p-3'>
-                                        <option value="" className=''> <Image src="/circle.png" width={20} height={20} alt='profile icon' /> Select Participants</option>
-                                    </select><span className='ml-2'>...</span>
-                                </div>
-                                <div className='flex items-center'>
-                                    <select name="" id="" className='mt-3 bg-[#132C53] flex items-center justify-start outline-none w-[300px] border border-[#143261] rounded-md p-3'>
-                                        <option value="" className=''> <Image src="/circle.png" width={20} height={20} alt='profile icon' /> Select Participants</option>
-                                    </select><span className='ml-2'>...</span>
-                                </div>
-                                <button className='bg-[#132C53] py-2 px-3 flex items-center
-                   justify-center rounded-md mt-3'><FaPlus className='text-[10px] mr-2 ' /> Add Participant</button>
-                            </div>
-                            <div className='m-4'>
-                                <strong>What went well?</strong><br />
-                                <textarea className='bg-[#0A1D38] mt-3 border border-[#143261] w-full p-4 rounded-md h-[115px]'>
-                                    Describe what your team liked...
-                                </textarea>
-                            </div>
-                            <div className='ml-4 mr- mb-4'>
-                                <strong>What could be improved?</strong><br />
-                                <textarea className='bg-[#0A1D38] mt-3 border border-[#143261] w-full p-4 rounded-md h-[115px]'>
-                                    Describe what didn't go so well...
-                                </textarea>
-                            </div>
-                        </div>
-                        <div className='flex items-start justify-start flex-col'>
-                            <div className='w-[350px]'>
-                                <p className='text-[#6B8CC2] mb-3'>Health Status</p>
-                                <button className={`flex items-center justify-center ${lightMode ? "bg-[#fff] border border-[#B4C6E4] " : "bg-[#0EB498] border border-[#143261] text-[#12294E]"} rounded-lg p-2`}><RxLoop className={`${lightMode ? "text-[#6B8CC2] border border-[#6B8CC2]" : "text-[#12294E]"}  rounded-full p-[1px]`} /> <span className={`${lightMode ? "text-[#305288]" : "text-[#12294E]"}`}>&ensp;Completed&ensp;</span> <IoIosArrowDown /></button>
-                            </div>
-                            <div className={`p-4 mt-4 ${lightMode ? "bg-[#fff] border border-[#B4C6E4]" : "bg-[#0A1D38] border border-[#143261]"} w-[340px] rounded-lg`}>
-                                <div className=' my-3 flex items-start justify-start'>
-                                    <p className={`w-[110px] ${lightMode ? "text-[#6B8CC2]" : "text-[#6B8CC2]"}`}>Projetspace</p>
-                                    <div className={`flex items-center justify-center ${lightMode ? "text-[#305288]" : "text-[#99C0FF]"}`}>
-                                        <Image src={"/shape.png"} className='mr-3' width={20} height={30} alt='space' /> MobileApps
-                                    </div>
-                                </div>
-                                <div className=' my-3 flex items-start justify-start'>
-                                    <p className={`w-[110px] ${lightMode ? "text-[#6B8CC2]" : "text-[#6B8CC2]"}`}>Team</p>
-                                    <div className={`flex items-center justify-center ${lightMode ? "text-[#305288]" : "text-[#99C0FF]"}`}>
-                                        <Image src={"/paint.png"} className='mr-3' width={20} height={30} alt='space' /> Product Development
-                                    </div>
-                                </div>
-                                <div className='my-3 flex items-start justify-start'>
-                                    <p className={`w-[110px] ${lightMode ? "text-[#6B8CC2]" : "text-[#6B8CC2]"}`}>Phase</p>
-                                    <div className={`flex items-center justify-center ${lightMode ? "text-[#305288]" : "text-[#99C0FF]"}`}>
-                                        <Image src={"/circle2.png"} className='mr-3' width={20} height={30} alt='space' /> Planned
-                                    </div>
-                                </div>
-                                <div className='my-3 flex items-start justify-start'>
-                                    <p className={`w-[110px] ${lightMode ? "text-[#6B8CC2]" : "text-[#6B8CC2]"}`}>Owner</p>
-                                    <div className={`flex items-center justify-center ${lightMode ? "text-[#305288]" : "text-[#99C0FF]"}`}>
-                                        <Image src={"/circle.png"} className='mr-3' width={20} height={30} alt='space' /> Unassigned
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={`p-4 mt-4 ${lightMode ? "bg-[#fff] border border-[#B4C6E4]" : "bg-[#0A1D38] border border-[#143261]"} w-[340px] rounded-lg`}>
-                                <div className=' my-3 flex items-start justify-start'>
-                                    <p className={`w-[110px] ${lightMode ? "text-[#6B8CC2]" : "text-[#6B8CC2]"}`}>Start Date</p>
-                                    <div className={`flex items-center justify-center ${lightMode ? "text-[#305288]" : "text-[#99C0FF]"}`}>
-                                        <FaCalendar className='mr-2' /> None
-                                    </div>
-                                </div>
-                                <div className=' my-3 flex items-start justify-start'>
-                                    <p className={`w-[110px] ${lightMode ? "text-[#6B8CC2]" : "text-[#6B8CC2]"}`}>End Date</p>
-                                    <div className={`flex items-center justify-center ${lightMode ? "text-[#305288]" : "text-[#99C0FF]"}`}>
-                                        <FaCalendar className='mr-2' /> None
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={`p-4 mt-4 ${lightMode ? "bg-[#fff] border border-[#B4C6E4]" : "bg-[#0A1D38] border border-[#143261]"} w-[340px] rounded-lg`}>
-                                <div className=' my-1 flex items-start justify-start'>
-                                    <p className={`w-[110px] ${lightMode ? "text-[#6B8CC2]" : "text-[#6B8CC2]"}`}>initiative</p>
-                                    <div className={`flex items-center justify-center ${lightMode ? "text-[#305288]" : "text-[#99C0FF]"}`}>
-                                        <CiCompass1 className='mr-2 text-[18px]' />  Initiative Name
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={`p-4 mt-4 ${lightMode ? "bg-[#fff] border border-[#B4C6E4]" : "bg-[#0A1D38] border border-[#143261]"} w-[340px] rounded-lg`}>
-                                <div className=' my-1 flex items-start justify-start'>
-                                    <p className={`w-[110px] ${lightMode ? "text-[#6B8CC2]" : "text-[#6B8CC2]"}`}>Labels</p>
-                                    <div className={`flex items-center justify-center ${lightMode ? "text-[#305288]" : "text-[#99C0FF]"}`}>
-                                        None
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='mt-4 border-b border-[#143261] pb-4 w-full'>
-                                <p className={`${lightMode ? "text-[#26467A]" : "text-[#AECDFF]"}`}>25% Done, 15% In Progress</p>
-                                <div className={`mt-2 w-[300px] rounded-lg h-[10px] relative ${lightMode ? "bg-[#D5E2F6]" : "bg-[#143261]"}`}>
-                                    <div className={`w-[150px] h-full ${lightMode ? "bg-[#11E4C1]" : "bg-[#0C5A4D]"} absolute rounded-lg`}></div>
-                                    <div className='w-[100px] h-full bg-[#0EB498] absolute rounded-lg'></div>
-                                </div>
-                            </div>
-                            <p className={`mt-4 mb-2 text-[15px] ${lightMode ? "text-[#99C0FF]" : "text-[#305288]"}`}>Created</p>
-                            <p className='mb-2 ${lightMode ? "text-[#305288] text-[16px]":"text-[16px] text-[#99C0FF]"}'>Apr 7 2023, 5:10pm</p>
-                            <p className={`${lightMode ? "text-[#99C0FF]" : "text-[#305288]"}`}>Last Updated</p>
-                            <p className='${lightMode ? "text-[#305288] text-[16px]":"text-[16px] text-[#99C0FF]"}'>July 7 2023, 5:10pm</p>
+                            <Stories user={user} />
+                            <Stories user={user} />
+                            <Stories user={user} />
+                            <Stories user={user} />
+                            <Stories user={user} />
                         </div>
                     </div>
                 </div>
