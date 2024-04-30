@@ -6,14 +6,13 @@ const withAuth = (Component) => {
   const Auth = (props) => {
     const { isLoggedIn } = useAuth();
     const router = useRouter();
-
+    
+    console.log(isLoggedIn, "==isLoggedIn:withAuth");
     useEffect(() => {
-      console.log(isLoggedIn, "==isLoggedIn:withAuth");
-      
       if (!isLoggedIn) {
         router.push("/signin");
       }
-    }, [isLoggedIn, router]);
+    }, [isLoggedIn]);
 
     if (!isLoggedIn) {
       return null;

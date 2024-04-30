@@ -11,6 +11,7 @@ export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const login = (data) => {
+    console.log(data, "====daaaattttaaaaaaaa");
     setIsLoggedIn(true);
     localStorage.setItem("accessToken", data?.accessToken);
     localStorage.setItem("refreshToken", data?.refreshToken);
@@ -24,10 +25,11 @@ export const AuthProvider = ({ children }) => {
   useEffect(()=>{
     if(localStorage){
         if(localStorage.getItem("accessToken")){
-            login()
+            // login()
+            setIsLoggedIn(true);
         }
-        else {
-            logout();
+        else if(isLoggedIn) {
+          setIsLoggedIn(false);
         }
     }
   }, [])

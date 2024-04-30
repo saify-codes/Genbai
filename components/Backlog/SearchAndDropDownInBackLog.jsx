@@ -10,7 +10,7 @@ import StoryTypeDropDown from "./SroryTypeDropDown";
 import { GoSearch } from "react-icons/go";
 
 
-const SearchAndDropDownInBackLog = () => {
+const SearchAndDropDownInBackLog = ({ NAME=["Epics", "Story Types", "Deliverables", "Labels"] }) => {
     const { theme } = useTheme();
     return (
         <div className="flex flex-wrap gap-2 items-center">
@@ -21,10 +21,10 @@ const SearchAndDropDownInBackLog = () => {
                 </div>
             </div>
             <div className="flex flex-wrap items-center gap-2">
-                <EpicDropDown data={EpicData} /> 
-                <StoryTypeDropDown data={StoryTypes} /> 
-                <DeliverablesDropDown data={DeliverablesData} />
-                <LabelsDropDown data={LabelsData} />
+                <EpicDropDown data={EpicData} title={NAME[0]} /> 
+                <StoryTypeDropDown data={StoryTypes} title={NAME[1]} /> 
+                <DeliverablesDropDown data={DeliverablesData} title={NAME[2]} />
+                <LabelsDropDown data={LabelsData} title={NAME[3]} />
             </div>
         </div>
     );

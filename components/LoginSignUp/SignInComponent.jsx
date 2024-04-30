@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from 'next/navigation';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from "next/image";
 import { TextInput, PasswordInput, Button } from '@mantine/core';
 import { MdEmail } from "react-icons/md";
@@ -20,6 +20,12 @@ const SignInComponent = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
+
+    useEffect(()=>{
+        if(localStorage && localStorage.getItem("accessToken")){
+            router.push("/backlog");
+        }
+    }, [])
 
     const handleLogin = () => {
         setLoading(true);

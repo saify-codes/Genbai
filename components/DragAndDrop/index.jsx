@@ -72,7 +72,7 @@ const getListStyle = isDraggingOver => ({
   margin: '0 8px',
 });
 
-function QuoteApp() {
+function QuoteApp({  }) {
   const [boards, setBoards] = useState(initialBoards);
   const { theme } = useTheme();
   const light = theme === 'light';
@@ -138,7 +138,7 @@ function QuoteApp() {
           </div>
           <div className='px-3'>
             {
-              user.map((item, index) => {
+              user?.map((item, index) => {
                 return (
                   <Block key={index} light={light} title={item.title} date={item.date} logo={item.logo} aim={item.aim} plug={item.plug} sprint={item.sprint} images={item.images} />
                 )
