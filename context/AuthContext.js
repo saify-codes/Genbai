@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const login = (data) => {
-    console.log(data, "====daaaattttaaaaaaaa");
+    console.log(data, "====daaaattttaaaaaaaa:login:function");
     setIsLoggedIn(true);
     localStorage.setItem("accessToken", data?.accessToken);
     localStorage.setItem("refreshToken", data?.refreshToken);

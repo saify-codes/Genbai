@@ -9,7 +9,7 @@ const withAuth = (Component) => {
     
     console.log(isLoggedIn, "==isLoggedIn:withAuth");
     useEffect(() => {
-      if (!isLoggedIn) {
+      if (!isLoggedIn && !localStorage.getItem("accessToken")) {
         router.push("/signin");
       }
     }, [isLoggedIn]);

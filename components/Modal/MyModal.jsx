@@ -3,13 +3,13 @@ import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 import { IoClose } from 'react-icons/io5'
 
-export default function MyModal({ title="", open=false, close=()=>{}, children }) {
+export default function MyModal({ title="", open=false, close=()=>{}, className="", children }) {
   const { theme } = useTheme();
   const isLight = theme === 'light';
   return (
     <>
       <Transition appear show={open} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={close}>
+        <Dialog as="div" className="relative z-50" onClose={close}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -22,8 +22,8 @@ export default function MyModal({ title="", open=false, close=()=>{}, children }
             <div className={`fixed inset-0 ${isLight ? "bg-black/25": "bg-white/25"}`} />
           </Transition.Child>
 
-          <div className="fixed inset-0 overflow-y-auto">
-            <div className="flex min-h-full items-center justify-center p-4 text-center">
+          <div className={`fixed inset-0 overflow-y-auto`}>
+            <div className={`flex min-h-full items-center justify-center p-4 text-center`}>
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -33,7 +33,7 @@ export default function MyModal({ title="", open=false, close=()=>{}, children }
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className={`w-full max-w-md transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all ${isLight ? "bg-white": "bg-[#06152D]"}`}>
+                <Dialog.Panel className={`w-full max-w-xl transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all ${className} ${isLight ? "bg-white": "bg-[#06152D]"}`}>
                   <div className='flex justify-between'>
                     <Dialog.Title
                       as="h3"

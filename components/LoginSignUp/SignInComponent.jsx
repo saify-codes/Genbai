@@ -36,7 +36,9 @@ const SignInComponent = () => {
                 showToastMessage(res?.data?.message, "success");
                 login(res?.data);
                 setLoading(false);
-                router.push('/backlog');
+                setTimeout(()=>{
+                    router.push('/initiatives');
+                }, 2000);
             }
         })
         .catch(error => {

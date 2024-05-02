@@ -1,4 +1,5 @@
 "use client";
+import './backlog.css';
 import { useDisclosure } from '@mantine/hooks';
 import { Button, Group, Text, Collapse, Box, Table, Checkbox } from '@mantine/core';
 import { useState } from 'react';
@@ -22,37 +23,40 @@ const tableData = {
 const TableInBackLog = ({ isOpen = false }) => {
   const [opened, { toggle }] = useDisclosure(isOpen);
   const [selectedRows, setSelectedRows] = useState([]);
-  const theme = useTheme();
+  const {theme} = useTheme();
+  const isLight = theme === 'light';
 
   const rows = Array(5).fill(tableData).map((element, i) => {
-    return (<Table.Tr
-      key={i}
-      bg={selectedRows.includes(element.id) ? 'var(--mantine-color-blue-light)' : undefined}
-      className='hover:text-black w-full'
-    >
-      <Table.Td>
-        <Checkbox
-          aria-label="Select row"
-          checked={selectedRows.includes(element.id)}
-          onChange={(event) =>
-            setSelectedRows(
-              event.currentTarget.checked
-                ? [...selectedRows, element.id]
-                : selectedRows.filter((id) => id !== element.id)
-            )
-          }
-        />
-      </Table.Td>
-      <Table.Td>{element.id}</Table.Td>
-      <Table.Td>{element.type}</Table.Td>
-      <Table.Td>{element.name}</Table.Td>
-      <Table.Td>{element.epic}</Table.Td>
-      <Table.Td>{element.team}</Table.Td>
-      <Table.Td>{element.owner}</Table.Td>
-      <Table.Td>{element.phase}</Table.Td>
-      <Table.Td>{element.status}</Table.Td>
-      <Table.Td>{element.sprint}</Table.Td>
-    </Table.Tr>)
+    return (
+      <Table.Tr
+        key={i}
+        bg={selectedRows.includes(element.id) ? 'var(--mantine-color-blue-light)' : undefined}
+        className='hover:text-black w-full'
+      >
+        <Table.Td>
+          <Checkbox
+            aria-label="Select row"
+            checked={selectedRows.includes(element.id)}
+            onChange={(event) =>
+              setSelectedRows(
+                event.currentTarget.checked
+                  ? [...selectedRows, element.id]
+                  : selectedRows.filter((id) => id !== element.id)
+              )
+            }
+          />
+        </Table.Td>
+        <Table.Td>{element.id}</Table.Td>
+        <Table.Td>{element.type}</Table.Td>
+        <Table.Td>{element.name}</Table.Td>
+        <Table.Td>{element.epic}</Table.Td>
+        <Table.Td>{element.team}</Table.Td>
+        <Table.Td>{element.owner}</Table.Td>
+        <Table.Td>{element.phase}</Table.Td>
+        <Table.Td>{element.status}</Table.Td>
+        <Table.Td>{element.sprint}</Table.Td>
+      </Table.Tr>
+    )
   });
 
   return (
@@ -60,13 +64,13 @@ const TableInBackLog = ({ isOpen = false }) => {
       <TableHeader opened={opened} toggle={toggle} />
 
       <Collapse in={opened} transitionDuration={1000} transitionTimingFunction="linear">
-        <Table className='bg-transparent flex items-center justify-center'
-          borderColor={theme === 'light' ? '#EEF2F7' : '#143261'}
+        <Table 
+          borderColor={isLight ? '#EEF2F7' : '#143261'}
           highlightOnHover withTableBorder
-          highlightOnHoverColor={theme === 'light' ? '#EEF2F7' : 'green'}
+          highlightOnHoverColor={isLight ? '#EEF2F7' : '#EEF2F7'}
         >
-          <Table.Thead>
-            <Table.Tr>
+          <Table.Thead className='w-full'>
+            <Table.Tr className='w-full'>
               <Table.Th />
               <Table.Th>ID</Table.Th>
               <Table.Th>Type</Table.Th>

@@ -18,15 +18,15 @@ const ALL_WORKSPACE = [
 
 function WorkSpaceMenuDropDown() {
     const { theme } = useTheme();
-    const { workSpace, updateWorkSpace } = useUser();
+    const { allWorkSpace, workSpace, updateWorkSpace, setAllWorkSpaceReducer } = useUser();
     const isLight = theme === 'light';
     const [workSpaceModal, setWorkSpaceModal] = useState(false);
     // const [workSpaceName, setWorkSpaceName] = useState('');
     const [loading, setLoading] = useState(false);
-    const [allWorkSpace, setAllWorkSpace] = useState([]);
+    // const [allWorkSpace, setAllWorkSpace] = useState([]);
     const [selectedWorkSpace, setSelectedWorkSpace] = useState('');
 
-    console.log(workSpace, "===workSpaceworkSpace");
+    console.log(workSpace, "===workSpaceworkSpaceallWorkSpace, ", allWorkSpace);
 
     const form = useForm({
         mode: 'uncontrolled',
@@ -48,10 +48,11 @@ function WorkSpaceMenuDropDown() {
     useEffect(()=>{
         MyAxios.get("/workspace").then(res => {
             console.log(res, "=== res: WorkSpace");
-            setAllWorkSpace(res.data.workspaces);
+            setAllWorkSpaceReducer(res.data.workspaces);
         })
         .catch(err => {
             console.log(err, " == error: WorkSpace");
+            setAllWorkSpaceReducer([]);
         });
     }, [])
 
@@ -62,7 +63,7 @@ function WorkSpaceMenuDropDown() {
         .then(res => {
             console.log(res, " = res: WorkSpace");
             form.reset();
-            setAllWorkSpace(prev => ([...prev, res.data.workspace]))
+            setAllWorkSpaceReducer([...allWorkSpace, res.data.workspace])
             setWorkSpaceModal(false);
             showToastMessage(res?.data?.message, "success");
         })
@@ -84,12 +85,15 @@ function WorkSpaceMenuDropDown() {
                     mt="md"
                     rightSectionPointerEvents="none"
                     rightSection={<FaPencil className={`${isLight ? "": ""}`} />}
-                    label="WorkSpace Name"
+                    label="Workspace Name"
                     placeholder="Enter WorkSpace Name"
                     // key={form.key('name')}
                     {...form.getInputProps('name')}
                     // onChange={(event) => setWorkSpaceName(event.currentTarget.value)}
-                    styles={{ input: isLight ? { background: '#ffffff', color: '#06152D' } : { background: '#06152D', color: '#ffffff' } }}
+                    styles={{ 
+                        input: isLight ? { background: '#ffffff', color: '#06152D' } : { background: '#06152D', color: '#ffffff' },
+                        label: isLight ? { color: '#06152D' }: { color: '#FFF' },
+                    }}
                 />
                 <button disabled={loading} className={`bg-[#057BF1] hover:bg-[#057bf1d2] text-white hover:text-gray-200 flex items-center justify-center gap-2 font-bold p-2 rounded-md w-full mt-3 ${isLight ? "": ""} `}>
                     {loading ? "Creating ...": "Create WorkSpace"}

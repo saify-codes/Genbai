@@ -46,10 +46,16 @@ export default function sidebar() {
         </div>
         <ul>
           <Link href="#">
-            <li className="flex gap-2 items-center hover:bg-accent hover:text-white transition rounded py-2 px-3">
-              <div className={`flex justify-center items-center font-semibold w-5 h-5 rounded-full uppercase bg-accent text-white`}>{workSpace?.title?.slice(0, 1)}</div>
-              <p className="">{workSpace?.title}</p>
-            </li>
+            {Object.keys(workSpace)?.length > 0 ? 
+              <li className="flex gap-2 items-center hover:bg-accent hover:text-white transition rounded py-2 px-3">
+                  <>
+                    <div className={`flex justify-center items-center font-semibold w-5 h-5 rounded-full uppercase bg-accent text-white`}>{workSpace?.title?.slice(0, 1)}</div>
+                    <p className="">{workSpace?.title}</p>
+                  </>
+              </li>
+              :
+              <p className={`flex gap-2 items-center transition rounded py-2 px-3 cursor-not-allowed border ${isLight ? "border-[#B4C6E4]": "border-[#143261]"}`}>No Workspace Available</p>
+            }
           </Link>
         </ul>
       </div>
@@ -88,16 +94,21 @@ export default function sidebar() {
             <FaMap />Roadmap
             </li>
           </Link>
-          <Link href="#">
+          <Link href="/initiatives">
             <li className="flex gap-2 items-center hover:bg-accent hover:text-white transition rounded py-2 px-3">
               <HiMiniTag />Initiatives
             </li>
           </Link>
-          <Link href="#">
+          <Link href="/epic">
             <li className="flex gap-2 items-center hover:bg-accent hover:text-white transition rounded py-2 px-3">
               <FaFlag />Epics
             </li>
           </Link>
+          {/* <Link href="/sprints">
+            <li className="flex gap-2 items-center hover:bg-accent hover:text-white transition rounded py-2 px-3">
+              <FaFlag />Sprints
+            </li>
+          </Link> */}
         </ul>
       </div>
 
@@ -105,16 +116,16 @@ export default function sidebar() {
         <TeamsCreate />
         <ul>
           {allTeamInProject?.length > 0 ? 
-            allTeamInProject?.map(team => (
-              <Disclosure>
+            allTeamInProject?.map((team, i) => (
+              <Disclosure key={i}>
                 <Disclosure.Button className="flex w-full gap-2 items-center py-2 px-3 hover:bg-accent hover:text-white transition rounded">
-                  <IoPeopleCircleOutline />All works
+                  <IoPeopleCircleOutline />{team?.title}
                 </Disclosure.Button>
                 <Disclosure.Panel>
                   <ul className="pl-6">
-                    <Link href="#"><li className={`flex gap-2 items-center py-2 px-3 border-l hover:bg-accent hover:text-white transition ${isLight ? "border-[#CCE4FF]": "border-[#07335F]"}`}><TbStackBackward />Backlog</li></Link>
+                    <Link href={`/backlog/${team.id}`}><li className={`flex gap-2 items-center py-2 px-3 border-l hover:bg-accent hover:text-white transition ${isLight ? "border-[#CCE4FF]": "border-[#07335F]"}`}><TbStackBackward />Backlog</li></Link>
                     <Link href="#"><li className={`flex gap-2 items-center py-2 px-3 border-l hover:bg-accent hover:text-white transition ${isLight ? "border-[#CCE4FF]": "border-[#07335F]"}`}><MdAutoStories />Stories</li></Link>
-                    <Link href="#"><li className={`flex gap-2 items-center py-2 px-3 border-l hover:bg-accent hover:text-white transition ${isLight ? "border-[#CCE4FF]": "border-[#07335F]"}`}><CiRepeat />Sprint</li></Link>
+                    <Link href={`/sprint/${team.id}`}><li className={`flex gap-2 items-center py-2 px-3 border-l hover:bg-accent hover:text-white transition ${isLight ? "border-[#CCE4FF]": "border-[#07335F]"}`}><CiRepeat />Sprint</li></Link>
                     <Link href="#"><li className={`flex gap-2 items-center py-2 px-3 border-l hover:bg-accent hover:text-white transition ${isLight ? "border-[#CCE4FF]": "border-[#07335F]"}`}><FaSquarePollVertical />Reports</li></Link>
                     <Link href="#"><li className={`flex gap-2 items-center py-2 px-3 border-l hover:bg-accent hover:text-white transition ${isLight ? "border-[#CCE4FF]": "border-[#07335F]"}`}><RiTeamFill />Teammates</li></Link>
                   </ul>

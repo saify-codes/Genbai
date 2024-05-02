@@ -4,11 +4,12 @@ import { GenerateStory, NishanBackLog, OutlinedCircle, StoryBackLog } from '@/ut
 import React from 'react';
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { FaPlus } from "react-icons/fa6";
+import CreateEpicModal from './CreateEpicModal';
 
-const TableHeader = ({ opened, toggle }) => {
+const TableHeaderForEpic = ({ opened, toggle }) => {
   const { theme } = useTheme();
   const isLight = theme === 'light';
-  console.log(isLight, "===tableHeader:isLight");
+  console.log(isLight, "===TableHeaderForEpic:isLight");
   return (
     <div className={`w-full items-center flex justify-between border-[1px] p-2 rounded-t-md ${isLight ? "border-[#EEF2F7] bg-[#F2F7FD]" : "border-[#143261] bg-[#061123]"}`}>
       <div >
@@ -32,18 +33,15 @@ const TableHeader = ({ opened, toggle }) => {
         </div>
       </div>
       <div className='flex items-center'>
-        <span className={`flex items-center gap-2 font-semibold cursor-pointer ${theme === 'light' ? "hover:text-[#324d75]" : "hover:text-[#5f99f5]"}`}>
-          <FaPlus />
-          Create Story
-        </span>
+        <CreateEpicModal fromTable={true} />
         <span className='mx-3'>OR</span>
         <span className={`flex items-center gap-2 font-semibold cursor-pointer ${theme === 'light' ? "hover:text-[#324d75]" : "hover:text-[#5f99f5]"}`}>
           <GenerateStory color={theme === 'light' ? "#000" : "#99C0FF"} />
-          Generate Story
+          Generate Epic
         </span>
       </div>
     </div>
   )
 }
 
-export default TableHeader
+export default TableHeaderForEpic;

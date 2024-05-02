@@ -5,6 +5,7 @@ import ProgressBarForInitiative from '../Charts/ProgressBarForInitiative';
 // import avatar from '@/public/user2.jpg';
 // import avatarGroup from '@/public/IndividualAssignees.png';
 import Image from "next/image"
+import { COLORS } from '@/utils/Constant_Data';
 
 const DATA = [
     { id: 1, title: "Frontend Redesign", status: 'On Track', date: 'Mar 23', storyPoint: 60, storyBook: 15, tags: ["Frontend", "Design"], project: 'PRJ-1', },
@@ -14,32 +15,43 @@ const DATA = [
     { id: 5, title: "Frontend Redesign", status: 'On Track', date: 'Mar 23', storyPoint: 60, storyBook: 15, tags: ["Frontend", "Design"], project: 'PRJ-1', },
 ]
 
-const COLORS = {
-    'Frontend': "#4BE7CD",
-    'Backend': "#4B77E7",
-    'MVP': "#E74B83",
-    'API': "#744BE7",
-    'Mobile': "#ADE903",
-    'Desktop': "#F89235",
-    'App': "#F1CB00",
-    'Web': "#E338D2",
-    'Design': "#1A91FF",
-}
 
-const REDNDER = [1, 2, 3, 4];
 
-const InitiativesMainComponent = () => {
+const InitiativesMainComponent = ({ data=[] }) => {
     const { theme } = useTheme();
     const isLight = theme === 'light';
+    const REDNDER = [{ id: 0, }, ...data];
     return (
         <div className='flex w-full overflow-auto gap-2'>
             {REDNDER?.map(data => (
-                <div key={data} className={`flex flex-col gap-2 w-[360px] h-fit rounded-lg border-[1px] ${isLight ? "border-[#EEF2F7]": "border-[#143261]"}`}>
-                    {data === 1 && 
+                <div key={data.id} className={`flex flex-col gap-2 w-[360px] h-fit rounded-lg border-[1px] ${isLight ? "border-[#EEF2F7]": "border-[#143261]"}`}>
+                    {data.id === 0 ?
                         <div className={`${isLight ? "bg-[#F2F7FD]": "bg-[#061123]"} p-2 rounded-sm mb-3`}>
                             <p className={`${isLight ? "text-[#305288]": "text-[#99C0FF]"} mt-1 text-xl font-semibold`}>Epic Backlog</p>
                             <p className={`${isLight ? "text-[#305288]": "text-[#99C0FF]"} mt-2`}>This is a list of incomplete Epics not yet included in an Initiative, sorted by due date.</p>
                             <p className={`${isLight ? "text-[#305288]": "text-[#99C0FF]"} mt-4`}>Drag and drop these Epics into an initiative as needed.</p>
+                        </div>
+                        :
+                        <div className={`${isLight ? "bg-[#F2F7FD]": "bg-[#061123]"} p-2 rounded-sm mb-3`}>
+                            <p className={`${isLight ? "text-[#305288]": "text-[#427CF0]"} mt-1 text-xl font-semibold mb-3`}>{data?.Title}</p>
+                            <div className={`flex items-center gap-3 ${isLight ? "text-[#305288]": "text-[#99C0FF]"} mt-2`}>
+                                <div className={`flex items-center gap-3 px-2 rounded-md ${isLight ? "bg-[#F2F7FD]": "bg-[#132C53]"}`}>
+                                    <TicketTypeIcons />
+                                    <span className="">5</span>
+                                </div>
+                                <div className={`flex items-center gap-3 px-2 rounded-md ${isLight ? "bg-[#F2F7FD]": "bg-[#132C53]"}`}>
+                                    <StoryPoint />
+                                    <span className="">20</span>
+                                </div>
+                                <div className={`flex items-center gap-3 px-2 rounded-md ${isLight ? "bg-[#F2F7FD]": "bg-[#132C53]"}`}>
+                                    <StoryPoint />
+                                    <span className="">85</span>
+                                </div>
+                            </div>
+                            <p className={`${isLight ? "text-[#305288]": "text-[#99C0FF]"} mt-4`}>25% Done, 15% In Progress</p>
+                            <div className="mt-1 h-full flex items-center w-full">
+                                <ProgressBarForInitiative />
+                            </div>
                         </div>
                     }
                     <div className="flex flex-col gap-2">
@@ -81,7 +93,7 @@ const InitiativesMainComponent = () => {
                                     </div>
                                 </div>
                                 <div className="mt-5 w-full flex justify-between items-center">
-                                    <div className="flex gap-2">
+                                    <div className="flex items-center gap-2">
                                         <TicketTypeIcons />
                                         <span className="">{data?.project}</span>
                                     </div>

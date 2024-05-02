@@ -1,10 +1,16 @@
 import { useAuth } from '@/context/AuthContext';
 import { Menu, Transition } from '@headlessui/react'
+import { useRouter } from 'next/navigation';
 import { Fragment, useEffect, useRef, useState } from 'react'
 import { TbLogout } from "react-icons/tb";
 
 export default function Example() {
     const { logout } = useAuth();
+    const router = useRouter();
+    const handleLogout = () => {
+        logout();
+        router.push("/signin");
+    }
     return (
         <Menu as="div" className="relative inline-block text-left">
             <div className="flex justify-center items-center">
@@ -137,7 +143,7 @@ export default function Example() {
                         <Menu.Item>
                             {({ active }) => (
                                 <button
-                                    onClick={logout}
+                                    onClick={handleLogout}
                                     className={`${active ? 'bg-violet-500 text-white' : 'text-gray-900'
                                         } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                                 >

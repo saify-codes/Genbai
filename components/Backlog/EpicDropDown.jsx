@@ -32,7 +32,7 @@ function EpicDropDown({ data }) {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
         >
-            <Menu.Items className={`absolute z-50 right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md border-[1px] shadow-lg ring-1 ring-black/5 focus:outline-none overflow-auto max-h-[380px] ${theme === 'light' ? "border-[#B4C6E4] bg-white text-[#143261]": "border-[#143261] bg-[#061123] text-[#99C0FF]"}`}>
+            <Menu.Items className={`absolute left-0 z-50 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md border shadow-lg ring-1 ring-black/5 focus:outline-none overflow-auto max-h-[380px] ${theme === 'light' ? "border-[#B4C6E4] bg-white text-[#143261]": "border-[#143261] bg-[#061123] text-[#99C0FF]"}`}>
                 <div className="p-2">
                     <p className='text-[#6B8CC2] font-semibold mb-2 uppercase'>Filter By Epic</p>
                     <div className="mb-2">

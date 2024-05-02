@@ -35,10 +35,10 @@ const selectedTabData = {
     2: <DragAndDrop />,
 }
 
-function BacklogPage () {
+function BacklogPage ({ params }) {
     const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
-    console.log(selectedTab, "===selectedTabaabbbsss");
+    console.log(selectedTab, "===selectedTabaabbbsss, team = ", params.teamId);
 
   return (
     <AppLayout>

@@ -54,7 +54,7 @@ const ProjectCreateModal = () => {
         .then(res => {
             console.log(res, " = res: Projec:C.Mod");
             form.reset();
-            updateAllProjectInWorkSpace([...allProject, res.data.project], workSpace.id)
+            updateAllProjectInWorkSpace([...allProject, res.data.data], workSpace.id)
             setProjectModal(false);
             showToastMessage(res?.data?.message, "success");
         })
@@ -126,7 +126,10 @@ const ProjectCreateModal = () => {
                     label="Project Name"
                     placeholder="Enter Project Name"
                     {...form.getInputProps('title')}
-                    styles={{ input: isLight ? { background: '#ffffff', color: '#06152D' } : { background: '#06152D', color: '#ffffff' } }}
+                    styles={{ 
+                        input: isLight ? { background: '#ffffff', color: '#06152D' } : { background: '#06152D', color: '#ffffff' },
+                        label: isLight ? { color: '#06152D' }: { color: '#FFF' },
+                    }}
                 />
                 <button disabled={loading} className={`bg-[#057BF1] hover:bg-[#057bf1d2] text-white hover:text-gray-200 flex items-center justify-center gap-2 font-bold p-2 rounded-md w-full mt-3 ${isLight ? "": ""} `}>
                     {loading ? "Creating ...": "Create Project"}

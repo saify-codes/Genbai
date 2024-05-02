@@ -25,6 +25,15 @@
     white-space: nowrap;
 }
 
+.text-overflow {
+    display: block; /* or inline-block */
+    white-space: nowrap; /* Keeps the text on a single line */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis when text overflows */
+    /* max-width: 100%; */
+}
+
 /* .mantine-PasswordInput-input {
     background: #06152D;
 } */
+

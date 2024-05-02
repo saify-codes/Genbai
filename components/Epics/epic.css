@@ -1,0 +1,26 @@
+
+
+.no-break {
+    white-space: nowrap;
+}
+
+/* .table-row-epic:hover .tagColorOnHover {
+    background-color: aqua;
+} */
+
+.table-row-epic-light:hover {
+    background-color: #F2F7FD;
+}
+
+.table-row-epic-dark:hover {
+    background-color: #132C53;
+    color: white;
+}
+
+.table-row-epic-light:hover .tagColorOnHover {
+    background-color: white;
+}
+
+.table-row-epic-dark:hover .tagColorOnHover {
+    background-color: #061123;
+}

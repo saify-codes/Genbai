@@ -52,11 +52,13 @@ const SignUpRight = () => {
         const data = { email, password, }
         MyAxios.post("/auth/signup", data)
         .then(res => {
-            console.log(res.data, "==res:dataaaa")
+            console.log(res.data, "==res:dataaaa:signUp")
             if(res.data.success){
                 showToastMessage(res?.data?.message, "success");
-                login();
-                router.push('/backlog');
+                login(res.data);
+                setTimeout(()=>{
+                    router.push('/initiatives');
+                }, 2000);
             }
         })
         .catch(error => {

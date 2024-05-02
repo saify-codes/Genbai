@@ -14,7 +14,7 @@ import { BsThreeDots } from 'react-icons/bs';
 const TeamsCreate = () => {
     const { theme } = useTheme();
     const isLight = theme === 'light';
-    const { workSpace, allProject, selectedProject } = useUser();
+    const { workSpace, allProject, selectedProject, allTeamInProject, allTeamReducer } = useUser();
     const [teamModal, setTeamModal] = useState(false);
     const [loading, setLoading] = useState(false);
 
@@ -38,8 +38,9 @@ const TeamsCreate = () => {
         setLoading(true);
         MyAxios.post("/team", { ...values, workspaceId: workSpace.id })
         .then(res => {
-            console.log(res, " = res: WorkSpace");
+            console.log(res, " = res: team create");
             form.reset();
+            allTeamReducer([...allTeamInProject, res.data.data]);
             setTeamModal(false);
             showToastMessage(res?.data?.message, "success");
         })
@@ -72,11 +73,15 @@ const TeamsCreate = () => {
                     label="Team Name"
                     placeholder="Enter Team Name"
                     {...form.getInputProps('title')}
-                    styles={{ input: isLight ? { background: '#ffffff', color: '#06152D' } : { background: '#06152D', color: '#ffffff' } }}
+                    styles={{ 
+                      input: isLight ? { background: '#ffffff', color: '#06152D' } : { background: '#06152D', color: '#ffffff' },
+                      label: isLight ? { color: '#06152D' }: { color: '#FFF' },
+                    }}
                 />
                 <Select
                     label="Project"
                     placeholder="Select Project"
+                    className='mt-2'
                     data={allProject?.length > 0 ? allProject.map((project) => ({ value: project.id.toString(), label: project.Title })): [{ value: 'No Project Available', label: 'No Project Available', disabled: true },]}
                     {...form.getInputProps('projectId')}
                     defaultValue={{ value: selectedProject?.id?.toString(), label: selectedProject?.Title }}
@@ -86,6 +91,7 @@ const TeamsCreate = () => {
                         input: isLight ? { background: '#ffffff', color: '#06152D' } : { background: '#06152D', color: '#ffffff' },
                         dropdown: isLight ? { background: '#ffffff', color: '#06152D' } : { background: '#06152D', color: '#ffffff' },
                         option: isLight ? undefined : { color: '#ffffff', background: '#06152D' },  // Default state for items in dark mode
+                        label: isLight ? { color: '#06152D' }: { color: '#FFF' },
                       //   item: (styles, { hovered, selected }) => ({
                       //     ...styles,
                       //     backgroundColor: hovered ? (isLight ? '#FFF' : '#000') : selected ? (isLight ? '#c0c0c0' : '#333') : (isLight ? '#ffffff' : '#06152D'),
